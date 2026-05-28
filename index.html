@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Mohamed Glass | 74 مراية فاخرة</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -10,16 +10,16 @@
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
 
         :root {
-            --primary: #c6a43b;      /* ذهبي هادئ */
-            --secondary: #2c3e4e;    /* كحلي ناعم */
-            --bg-main: #fefcf5;      /* خلفية بيج فاتح مريح */
+            --primary: #c6a43b;
+            --secondary: #2c3e4e;
+            --bg-main: #fefaf2;
             --bg-alt: #ffffff;
             --card-bg: #ffffff;
-            --border-color: #e8e2d5;
+            --border-color: #ede5d5;
             --text: #2c3e4e;
-            --text-light: #5d6e7e;
-            --gradient: linear-gradient(135deg, #d4af37 0%, #b68b2d 100%);
-            --shadow-sm: 0 8px 20px rgba(0,0,0,0.03);
+            --text-light: #6a7c8f;
+            --gradient: linear-gradient(135deg, #d4af37, #b68b2d);
+            --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
         }
 
         * {
@@ -45,7 +45,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.3;
         }
 
         header {
@@ -53,19 +53,19 @@
             top: 0;
             right: 0;
             width: 100%;
-            padding: 1.8rem 5%;
+            padding: 1.4rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(254, 252, 245, 0.92);
+            background: rgba(254, 250, 242, 0.96);
             backdrop-filter: blur(12px);
             z-index: 1000;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 1px 12px rgba(0,0,0,0.03);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .logo-text {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 800;
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -78,13 +78,12 @@
 
         nav {
             display: flex;
-            gap: 3.5rem;
+            gap: 2.5rem;
         }
         nav a {
-            font-size: 1.7rem;
+            font-size: 1.65rem;
             font-weight: 600;
             color: var(--text);
-            transition: 0.2s;
         }
         nav a:hover, nav a.active { color: var(--primary); }
 
@@ -97,17 +96,16 @@
         section {
             padding: 11rem 5% 7rem;
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(20px);
+            transition: 0.5s ease;
         }
         section.show { opacity: 1; transform: translateY(0); }
 
         .section-title {
-            font-size: 4rem;
+            font-size: 3.6rem;
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
         }
         .accent { color: var(--primary); }
 
@@ -115,77 +113,68 @@
         .home {
             display: flex;
             align-items: center;
-            gap: 6rem;
-            min-height: 90vh;
+            gap: 4rem;
+            min-height: 85vh;
         }
-        .home-content h1 { font-size: 5.5rem; line-height: 1.3; margin-bottom: 1rem; }
-        .home-content h3 { font-size: 3rem; color: var(--text-light); margin: 1rem 0; }
-        .typing-text { color: var(--primary); border-left: none; }
-        .home-content p { font-size: 1.9rem; color: var(--text-light); max-width: 550px; margin: 2rem 0; }
-        .home-img img { border-radius: 28px; width: 100%; max-width: 420px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); }
+        .home-content h1 { font-size: 5rem; line-height: 1.2; }
+        .home-content h3 { font-size: 2.6rem; color: var(--text-light); margin: 1rem 0; }
+        .typing-text { color: var(--primary); }
+        .home-content p { font-size: 1.8rem; color: var(--text-light); max-width: 500px; margin: 2rem 0; }
+        .home-img img { border-radius: 28px; width: 100%; max-width: 380px; box-shadow: var(--shadow-sm); }
 
-        /* الأزرار */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.3rem 3.5rem;
+            gap: 0.8rem;
+            padding: 1.2rem 3rem;
             background: var(--gradient);
             color: white;
             border-radius: 60px;
             font-weight: 800;
-            font-size: 1.7rem;
-            transition: all 0.2s;
-            box-shadow: 0 5px 12px rgba(198, 164, 59, 0.2);
+            font-size: 1.6rem;
+            transition: 0.2s;
         }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(198,164,59,0.25);}
         .btn-outline {
             background: transparent;
             border: 2px solid var(--primary);
             color: var(--primary);
-            box-shadow: none;
         }
         .btn-outline:hover { background: var(--primary); color: white; }
 
-        /* المنتجات (البطاقات) */
+        /* معرض المنتجات */
         .portfolio-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 3rem;
-            margin-top: 5rem;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
         .portfolio-box {
             background: var(--card-bg);
             border-radius: 28px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            transition: all 0.25s ease;
-            height: 420px;   /* أرتفاع أكبر قليلاً */
+            transition: 0.25s;
+            height: 420px;
             position: relative;
             box-shadow: var(--shadow-sm);
-        }
-        .portfolio-box:hover {
-            transform: translateY(-6px);
-            border-color: var(--primary);
-            box-shadow: 0 18px 30px rgba(0,0,0,0.08);
         }
         .product-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.35s;
+            transition: 0.3s;
         }
         .portfolio-box:hover .product-image { transform: scale(1.02); }
         .price-tag {
             position: absolute;
-            top: 18px;
-            left: 18px;
+            top: 16px;
+            left: 16px;
             background: var(--gradient);
             color: white;
-            padding: 0.6rem 1.8rem;
+            padding: 0.5rem 1.6rem;
             border-radius: 40px;
             font-weight: 800;
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             z-index: 5;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
@@ -194,102 +183,83 @@
             bottom: 0;
             right: 0;
             width: 100%;
-            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
-            backdrop-filter: blur(4px);
-            padding: 2rem 1.5rem;
+            background: linear-gradient(0deg, rgba(0,0,0,0.85), rgba(0,0,0,0.4));
+            backdrop-filter: blur(3px);
+            padding: 1.8rem 1.2rem;
             text-align: center;
             transform: translateY(100%);
-            transition: 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: 0.3s;
         }
         .portfolio-box:hover .portfolio-layer { transform: translateY(0); }
-        .portfolio-layer h4 {
-            color: #f8f3e9;
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin-bottom: 0.6rem;
-        }
-        .portfolio-layer p {
-            color: #f0e6d8;
-            font-size: 1.6rem;
-            margin-bottom: 1.4rem;
-            line-height: 1.4;
-        }
-        .portfolio-layer .btn-outline {
-            background: rgba(255,255,255,0.12);
-            border-color: rgba(255,215,120,0.8);
-            color: #fff5e6;
-            font-size: 1.5rem;
-            padding: 0.8rem 1.8rem;
-        }
-        .portfolio-layer .btn-outline:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: #1e2a36;
-        }
+        .portfolio-layer h4 { color: #fff3e6; font-size: 2rem; font-weight: 800; }
+        .portfolio-layer p { color: #f0e2d0; font-size: 1.5rem; margin: 0.5rem 0 1rem; }
+        .portfolio-layer .btn-outline { background: rgba(0,0,0,0.4); border-color: #ffdfaa; color: #fff; padding: 0.6rem 1.6rem; font-size: 1.4rem; }
 
-        /* المميزات والخطوات */
+        /* الأقسام الأخرى */
         .proof-grid, .process-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
         .proof-card, .process-step {
             background: var(--bg-alt);
-            padding: 2.5rem 1.5rem;
+            padding: 2rem 1.2rem;
             border-radius: 28px;
             border: 1px solid var(--border-color);
             text-align: center;
-            transition: 0.2s;
         }
-        .proof-card i, .process-step i {
-            font-size: 4.2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        .proof-card h3, .process-step h3 {
-            font-size: 2.1rem;
-            margin-bottom: 0.8rem;
-        }
-
-        /* الخلفية المخصصة */
+        .proof-card i, .process-step i { font-size: 3.8rem; color: var(--primary); margin-bottom: 0.8rem; }
         .fix-host-btn {
             background: var(--primary);
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
             font-weight: bold;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: 0.2s;
+            font-size: 1.4rem;
             margin: 0.5rem;
+            cursor: pointer;
         }
         .footer {
-            background: #e8e0d3;
+            background: #e6dfd1;
             color: var(--secondary);
             text-align: center;
-            padding: 2.5rem;
-            font-size: 1.5rem;
+            padding: 2rem;
+            font-size: 1.4rem;
         }
         @media (max-width: 768px) {
             html { font-size: 55%; }
-            .home { flex-direction: column; text-align: center; gap: 2rem; }
+            .home { flex-direction: column; text-align: center; gap: 1rem; }
             #menu-icon { display: block; }
             nav {
                 position: absolute;
                 top: 100%;
                 right: 0;
                 width: 100%;
-                background: #fffcf7;
+                background: #fffcf5;
                 flex-direction: column;
                 padding: 2rem;
                 display: none;
-                box-shadow: 0 15px 25px rgba(0,0,0,0.05);
                 border-radius: 0 0 24px 24px;
+                box-shadow: 0 20px 30px rgba(0,0,0,0.05);
             }
             nav.active { display: flex; }
             .portfolio-box { height: 380px; }
-            .portfolio-layer h4 { font-size: 2rem; }
+        }
+        .img-fallback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: #f4efe8;
+            color: #a28f77;
+            height: 100%;
+            text-align: center;
+            font-size: 1.4rem;
+            padding: 1rem;
+        }
+        .whatsapp-link {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -312,29 +282,30 @@
         <h3>ارتقِ بتصميم منزلك</h3>
         <h1>أضف لمسة من <span class="accent typing-text"></span></h1>
         <h3>إلى مساحتك الخاصة</h3>
-        <p>أكثر من 74 تصميم فاخر من المرايات العصرية. جودة زجاج فائقة وإضاءة LED حديثة، تناسب كل الأذواق.</p>
-        <a href="https://wa.me/201224318584" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> تواصل معنا</a>
+        <p>أكثر من 74 تصميم فاخر من المرايات العصرية بجودة عالية وإضاءة LED دافئة (Warm).</p>
+        <a href="https://wa.me/201224318584?text=مرحباً، أريد الاستفسار عن المرايات" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> تواصل واتساب</a>
     </div>
     <div class="home-img"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80" alt="مرايات فاخرة"></div>
 </section>
 
 <section id="features">
-    <div style="text-align:center;"><span style="background:rgba(198,164,59,0.12); padding:0.6rem 2rem; border-radius:60px; font-size:1.6rem;">لماذا تختارنا؟</span></div>
+    <div style="text-align:center;"><span style="background:rgba(198,164,59,0.12); padding:0.4rem 1.8rem; border-radius:60px; font-size:1.5rem;">لماذا تختارنا؟</span></div>
     <h2 class="section-title">صناعة متقنة <span class="accent">وجودة لا تضاهى</span></h2>
     <div class="proof-grid">
-        <div class="proof-card"><i class="fas fa-gem"></i><h3>زجاج نقي</h3><p>انعكاس مثالي بدون تشوهات</p></div>
-        <div class="proof-card"><i class="fas fa-ruler-combined"></i><h3>مقاسات مخصصة</h3><p>ننفذ أي مقاس بدقة</p></div>
-        <div class="proof-card"><i class="fas fa-lightbulb"></i><h3>إضاءة LED</h3><p>تاتش حديث ووايرلس</p></div>
+        <div class="proof-card"><i class="fas fa-gem"></i><h3>زجاج نقي</h3><p>انعكاس مثالي</p></div>
+        <div class="proof-card"><i class="fas fa-ruler-combined"></i><h3>مقاسات مخصصة</h3><p>ننفذ أي مقاس</p></div>
+        <div class="proof-card"><i class="fas fa-lightbulb"></i><h3>إضاءة LED</h3><p>لون دافئ (Warm)</p></div>
         <div class="proof-card"><i class="fas fa-truck"></i><h3>توصيل آمن</h3><p>لجميع المحافظات</p></div>
     </div>
 </section>
 
 <section id="products">
     <h2 class="section-title">أحدث <span class="accent">تصميماتنا</span> (74 مراية)</h2>
-    <p style="text-align:center; font-size:1.8rem; margin-bottom:1rem;">📍 اضغط على أي منتج للطلب المباشر عبر واتساب</p>
-    <div style="text-align:center; margin: 1rem 0 1.5rem;">
-        <button id="fixImagesBtn" class="fix-host-btn"><i class="fas fa-sync-alt"></i> إعادة محاولة تحميل الصور</button>
+    <p style="text-align:center; font-size:1.7rem; margin-bottom:0.5rem;">📱 اضغط على أي منتج للطلب عبر واتساب</p>
+    <div style="text-align:center; margin: 1rem 0;">
+        <button id="fixImagesBtn" class="fix-host-btn"><i class="fas fa-sync-alt"></i> إعادة تحميل الصور</button>
         <button id="changeHostBtn" class="fix-host-btn" style="background:#5c6b7a;"><i class="fas fa-globe"></i> تغيير رابط الاستضافة</button>
+        <button id="openImgHelp" class="fix-host-btn" style="background:#8b7a66;"><i class="fas fa-external-link-alt"></i> فتح الصورة في تبويب</button>
     </div>
     <div class="portfolio-container" id="productContainer"></div>
 </section>
@@ -342,96 +313,96 @@
 <section id="process">
     <h2 class="section-title">خطوات <span class="accent">الشراء</span></h2>
     <div class="process-container">
-        <div class="process-step"><div style="background:var(--primary); width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; color:white; font-weight:800; font-size:1.9rem;">1</div><h3>اختر التصميم</h3><p>اختر الموديل أو أرسل قياسك الخاص</p></div>
-        <div class="process-step"><div style="background:var(--primary); width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; color:white; font-weight:800; font-size:1.9rem;">2</div><h3>ننفذه بأعلى جودة</h3><p>خامات فاخرة وتقنية LED متطورة</p></div>
-        <div class="process-step"><div style="background:var(--primary); width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; color:white; font-weight:800; font-size:1.9rem;">3</div><h3>توصيل آمن</h3><p>دفع عند الاستلام وتغليف احترافي</p></div>
+        <div class="process-step"><div style="background:var(--primary); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:800;">1</div><h3>اختر التصميم</h3><p>اختر الموديل أو أرسل قياسك</p></div>
+        <div class="process-step"><div style="background:var(--primary); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:800;">2</div><h3>ننفذه بأعلى جودة</h3><p>خامات فاخرة وتقنية LED</p></div>
+        <div class="process-step"><div style="background:var(--primary); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:800;">3</div><h3>توصيل آمن</h3><p>دفع عند الاستلام</p></div>
     </div>
 </section>
 
-<section style="text-align:center; background: #faf7f0; border-radius: 48px; margin: 2rem 5%; padding: 4rem 2rem;">
-    <h2 class="cta-title" style="font-size:3.8rem;">جاهز لمساحة جديدة؟</h2>
-    <a href="https://wa.me/201224318584" target="_blank" class="btn" style="margin:2rem auto; display:inline-block;"><i class="fab fa-whatsapp"></i> راسلنا الآن</a>
+<section style="text-align:center; background: #faf5ea; border-radius: 48px; margin: 1rem 5% 3rem; padding: 3rem 2rem;">
+    <h2 style="font-size:3rem;">جاهز لمساحة جديدة؟</h2>
+    <a href="https://wa.me/201224318584?text=أريد%20طلب%20مراية%20موديل%20مخصص" target="_blank" class="btn" style="margin:2rem auto; display:inline-block;"><i class="fab fa-whatsapp"></i> راسلنا الآن</a>
 </section>
 
 <footer class="footer"><p>© 2026 Mohamed Glass - جميع الحقوق محفوظة</p></footer>
 
 <script>
-    // المنتجات الكاملة 74 (نفس البيانات)
+    // جميع المنتجات (74) مع تغيير worm -> warm
     const productsRaw = [
-        { name: "مراية 4 ملي", price: "950", specs: "60×80 سم - إضاءة ليد worm", img: "https://i.postimg.cc/bNd2yqhh/IMG-20260528-194701.jpg" },
-        { name: "مراية 4 ملي عشوائي بإستاند", price: "2000", specs: "65×160 سم - تاتش ليد worm", img: "https://i.postimg.cc/KYQZ3gPD/IMG-20260528-194913.jpg" },
+        { name: "مراية 4 ملي", price: "950", specs: "60×80 سم - إضاءة ليد warm", img: "https://i.postimg.cc/bNd2yqhh/IMG-20260528-194701.jpg" },
+        { name: "مراية 4 ملي عشوائي بإستاند", price: "2000", specs: "65×160 سم - تاتش ليد warm", img: "https://i.postimg.cc/KYQZ3gPD/IMG-20260528-194913.jpg" },
         { name: "مرايات 4 ملي عشوائي", price: "1200", specs: "80×100 سم", img: "https://i.postimg.cc/HxqsT14G/IMG-20260528-195117.jpg" },
-        { name: "مراية 4 ملي", price: "950", specs: "60×80 سم - تاتش ليد worm", img: "https://i.postimg.cc/d07Y3S0c/IMG-20260528-195246.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1650", specs: "80×120 سم - تاتش ليد worm", img: "https://i.postimg.cc/fLtmHZT7/IMG-20260528-195846.jpg" },
-        { name: "مراية 4 ملي دوران", price: "750", specs: "قطر 70 سم - ليد worm", img: "https://i.postimg.cc/PxwvW4SJ/IMG-20260528-200004.jpg" },
-        { name: "مراية فريم دهبي مستورد", price: "2000", specs: "65×160 سم - ليد worm", img: "https://i.postimg.cc/4xjJ6Tqn/IMG-20260528-200153.jpg" },
-        { name: "مراية 4 ملي", price: "1500", specs: "100×120 سم - ليد worm", img: "https://i.postimg.cc/zBcpB0V1/IMG-20260528-200442.jpg" },
-        { name: "مراية 4 ملي دوران", price: "850", specs: "قطر 80 سم - ليد worm", img: "https://i.postimg.cc/HLPPcpN1/IMG-20260528-200651.jpg" },
-        { name: "مراية 4 ملي", price: "1750", specs: "60×180 سم - ليد worm", img: "https://i.postimg.cc/Prtzjg6j/IMG-20260528-200919.jpg" },
-        { name: "مراية 4 ملي دوران", price: "850", specs: "قطر 80 سم - ليد worm", img: "https://i.postimg.cc/138FRsDF/IMG-20260528-201059.jpg" },
-        { name: "مراية 4 ملي", price: "800", specs: "60×80 سم - ليد worm", img: "https://i.postimg.cc/rsYp7Rng/IMG-20260528-201202.jpg" },
-        { name: "مراية 4 ملي", price: "1750", specs: "60×160 سم - تاتش ليد worm", img: "https://i.postimg.cc/dtbsdYzM/IMG-20260528-201330.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1500", specs: "65×150 سم - ليد worm", img: "https://i.postimg.cc/2SdDZBQX/IMG-20260528-201430.jpg" },
-        { name: "مراية 4 ملي", price: "1350", specs: "60×120 سم - ليد worm", img: "https://i.postimg.cc/HkmLRm3w/IMG-20260528-201523.jpg" },
+        { name: "مراية 4 ملي", price: "950", specs: "60×80 سم - تاتش ليد warm", img: "https://i.postimg.cc/d07Y3S0c/IMG-20260528-195246.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1650", specs: "80×120 سم - تاتش ليد warm", img: "https://i.postimg.cc/fLtmHZT7/IMG-20260528-195846.jpg" },
+        { name: "مراية 4 ملي دوران", price: "750", specs: "قطر 70 سم - ليد warm", img: "https://i.postimg.cc/PxwvW4SJ/IMG-20260528-200004.jpg" },
+        { name: "مراية فريم دهبي مستورد", price: "2000", specs: "65×160 سم - ليد warm", img: "https://i.postimg.cc/4xjJ6Tqn/IMG-20260528-200153.jpg" },
+        { name: "مراية 4 ملي", price: "1500", specs: "100×120 سم - ليد warm", img: "https://i.postimg.cc/zBcpB0V1/IMG-20260528-200442.jpg" },
+        { name: "مراية 4 ملي دوران", price: "850", specs: "قطر 80 سم - ليد warm", img: "https://i.postimg.cc/HLPPcpN1/IMG-20260528-200651.jpg" },
+        { name: "مراية 4 ملي", price: "1750", specs: "60×180 سم - ليد warm", img: "https://i.postimg.cc/Prtzjg6j/IMG-20260528-200919.jpg" },
+        { name: "مراية 4 ملي دوران", price: "850", specs: "قطر 80 سم - ليد warm", img: "https://i.postimg.cc/138FRsDF/IMG-20260528-201059.jpg" },
+        { name: "مراية 4 ملي", price: "800", specs: "60×80 سم - ليد warm", img: "https://i.postimg.cc/rsYp7Rng/IMG-20260528-201202.jpg" },
+        { name: "مراية 4 ملي", price: "1750", specs: "60×160 سم - تاتش ليد warm", img: "https://i.postimg.cc/dtbsdYzM/IMG-20260528-201330.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1500", specs: "65×150 سم - ليد warm", img: "https://i.postimg.cc/2SdDZBQX/IMG-20260528-201430.jpg" },
+        { name: "مراية 4 ملي", price: "1350", specs: "60×120 سم - ليد warm", img: "https://i.postimg.cc/HkmLRm3w/IMG-20260528-201523.jpg" },
         { name: "مراية 4 ملي دوران", price: "1400", specs: "قطر 100 سم - ليد white", img: "https://i.postimg.cc/kM8qmZVC/IMG-20260528-201726.jpg" },
         { name: "مراية 4 ملي", price: "1350", specs: "60×120 سم - ليد white", img: "https://i.postimg.cc/FFb8GQdX/IMG-20260528-201948.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1500", specs: "60×160 سم - ليد worm", img: "https://i.postimg.cc/kMwwBMRj/IMG-20260528-202249.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "800", specs: "60×80 سم - ليد worm", img: "https://i.postimg.cc/C17CBJ5k/IMG-20260528-202349.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1500", specs: "60×160 سم - ليد warm", img: "https://i.postimg.cc/kMwwBMRj/IMG-20260528-202249.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "800", specs: "60×80 سم - ليد warm", img: "https://i.postimg.cc/C17CBJ5k/IMG-20260528-202349.jpg" },
         { name: "مراية 4 ملي", price: "800", specs: "60×80 سم - ليد white", img: "https://i.postimg.cc/wBGySP13/IMG-20260528-202824.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1850", specs: "80×160 سم - ليد worm", img: "https://i.postimg.cc/DZGZRzkz/IMG-20260528-203007.jpg" },
-        { name: "مراية 4 ملي عشوائي شطف كمبيوتر", price: "1800", specs: "65×160 سم - تاتش ليد worm", img: "https://i.postimg.cc/Wz2vSpsg/IMG-20260528-203251.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1850", specs: "80×160 سم - ليد warm", img: "https://i.postimg.cc/DZGZRzkz/IMG-20260528-203007.jpg" },
+        { name: "مراية 4 ملي عشوائي شطف كمبيوتر", price: "1800", specs: "65×160 سم - تاتش ليد warm", img: "https://i.postimg.cc/Wz2vSpsg/IMG-20260528-203251.jpg" },
         { name: "مراية 4 ملي دوران", price: "1000", specs: "قطر 80 سم - تاتش ليد white", img: "https://i.postimg.cc/bNrXvBrj/IMG-20260528-203424.jpg" },
-        { name: "مراية 4 ملي بيضاوي", price: "700", specs: "50×70 سم - ليد worm", img: "https://i.postimg.cc/pLQBM2vW/IMG-20260528-203802.jpg" },
+        { name: "مراية 4 ملي بيضاوي", price: "700", specs: "50×70 سم - ليد warm", img: "https://i.postimg.cc/pLQBM2vW/IMG-20260528-203802.jpg" },
         { name: "مراية 4 ملي دوران", price: "1000", specs: "قطر 70 سم - تاتش ليد white", img: "https://i.postimg.cc/hv79ynMD/IMG-20260528-203903.jpg" },
-        { name: "مراية 4 ملي دوران", price: "700", specs: "قطر 60 سم - ليد worm", img: "https://i.postimg.cc/NjxP7854/IMG-20260528-204003.jpg" },
+        { name: "مراية 4 ملي دوران", price: "700", specs: "قطر 60 سم - ليد warm", img: "https://i.postimg.cc/NjxP7854/IMG-20260528-204003.jpg" },
         { name: "مراية 4 ملي فريم دهبي مستورد بإستاند", price: "2200", specs: "65×180 سم - ليد white", img: "https://i.postimg.cc/pXWj5DMV/IMG-20260528-204441.jpg" },
         { name: "مراية 4 ملي دوران", price: "1000", specs: "قطر 80 سم - تاتش ليد white", img: "https://i.postimg.cc/m2pPcJwB/IMG-20260528-204600.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1400", specs: "80×100 سم - ليد worm", img: "https://i.postimg.cc/hvytdQVp/FB-IMG-1779990410242.jpg" },
-        { name: "مراية 4 ملي زجزاج", price: "700", specs: "قطر 60 سم - ليد worm", img: "https://i.postimg.cc/hjMSkQyC/IMG-20260528-204735.jpg" },
-        { name: "مراية 4 ملي دوران", price: "950", specs: "قطر 70 سم - تاتش ليد worm", img: "https://i.postimg.cc/0ypqgJrM/IMG-20260528-204938.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1400", specs: "80×100 سم - ليد warm", img: "https://i.postimg.cc/hvytdQVp/FB-IMG-1779990410242.jpg" },
+        { name: "مراية 4 ملي زجزاج", price: "700", specs: "قطر 60 سم - ليد warm", img: "https://i.postimg.cc/hjMSkQyC/IMG-20260528-204735.jpg" },
+        { name: "مراية 4 ملي دوران", price: "950", specs: "قطر 70 سم - تاتش ليد warm", img: "https://i.postimg.cc/0ypqgJrM/IMG-20260528-204938.jpg" },
         { name: "مراية 4 ملي عشوائي", price: "1000", specs: "60×80 سم - تاتش ليد white", img: "https://i.postimg.cc/90WBfKB7/IMG-20260528-205605.jpg" },
-        { name: "مراية 4 ملي", price: "900", specs: "80×80 سم - ليد worm", img: "https://i.postimg.cc/1Xqyf7RK/IMG-20260528-210105.jpg" },
+        { name: "مراية 4 ملي", price: "900", specs: "80×80 سم - ليد warm", img: "https://i.postimg.cc/1Xqyf7RK/IMG-20260528-210105.jpg" },
         { name: "مراية 4 ملي فرنساوي", price: "1500", specs: "60×160 سم - ليد white", img: "https://i.postimg.cc/xCkX3RTJ/IMG-20260528-210217.jpg" },
         { name: "مراية 4 ملي الغيمة", price: "1200", specs: "80×100 سم - ليد white", img: "https://i.postimg.cc/GpttbQDN/IMG-20260528-210314.jpg" },
-        { name: "مراية 4 ملي", price: "1000", specs: "60×80 سم -تاتش ليد worm", img: "https://i.postimg.cc/W37HSMWG/IMG-20260528-210649.jpg" },
+        { name: "مراية 4 ملي", price: "1000", specs: "60×80 سم -تاتش ليد warm", img: "https://i.postimg.cc/W37HSMWG/IMG-20260528-210649.jpg" },
         { name: "مراية 4 ملي دوران", price: "850", specs: "قطر 60 سم - تاتش ليد white", img: "https://i.postimg.cc/mZzX6zXs/IMG-20260528-210955.jpg" },
-        { name: "مراية 4 ملي دوران", price: "850", specs: "قطر 60 سم -تاتش ليد worm", img: "https://i.postimg.cc/4ykz0ddM/IMG-20260528-211303.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1000", specs: "60×80 سم - تاتش ليد worm", img: "https://i.postimg.cc/7YB5Gh48/IMG-20260528-211440.jpg" },
-        { name: "مراية 4 ملي بيضاوي", price: "800", specs: "60×80 سم - ليد worm", img: "https://i.postimg.cc/X7T0z6cQ/IMG-20260528-211817.jpg" },
-        { name: "مراية 4 ملي", price: "1500", specs: "80×150 سم - ليد worm", img: "https://i.postimg.cc/Qtw3ZLGS/IMG-20260528-212038.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1000", specs: "60×80 سم - تاتش ليد worm", img: "https://i.postimg.cc/bNf7x9zQ/IMG-20260528-212215.jpg" },
-        { name: "مراية 4 ملي دوران", price: "850", specs: "قطر 60 سم - تاتش ليد worm", img: "https://i.postimg.cc/wvJWMnsd/IMG-20260528-212356.jpg" },
+        { name: "مراية 4 ملي دوران", price: "850", specs: "قطر 60 سم -تاتش ليد warm", img: "https://i.postimg.cc/4ykz0ddM/IMG-20260528-211303.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1000", specs: "60×80 سم - تاتش ليد warm", img: "https://i.postimg.cc/7YB5Gh48/IMG-20260528-211440.jpg" },
+        { name: "مراية 4 ملي بيضاوي", price: "800", specs: "60×80 سم - ليد warm", img: "https://i.postimg.cc/X7T0z6cQ/IMG-20260528-211817.jpg" },
+        { name: "مراية 4 ملي", price: "1500", specs: "80×150 سم - ليد warm", img: "https://i.postimg.cc/Qtw3ZLGS/IMG-20260528-212038.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1000", specs: "60×80 سم - تاتش ليد warm", img: "https://i.postimg.cc/bNf7x9zQ/IMG-20260528-212215.jpg" },
+        { name: "مراية 4 ملي دوران", price: "850", specs: "قطر 60 سم - تاتش ليد warm", img: "https://i.postimg.cc/wvJWMnsd/IMG-20260528-212356.jpg" },
         { name: "مراية 4 ملي فرنساوي", price: "1400", specs: "70×140 سم - ليد white", img: "https://i.postimg.cc/nrFvxW45/IMG-20260528-212728.jpg" },
         { name: "مراية 4 ملي دوران", price: "800", specs: "قطر 70 سم - ليد warm", img: "https://i.postimg.cc/YCv2VxWp/IMG-20260528-213228.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1500", specs: "65×160 سم - ليد worm", img: "https://i.postimg.cc/gkmb8HD1/IMG-20260528-214100.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1500", specs: "65×160 سم - ليد warm", img: "https://i.postimg.cc/gkmb8HD1/IMG-20260528-214100.jpg" },
         { name: "مراية 4 ملي", price: "1000", specs: "60×80 سم - ليد white", img: "https://i.postimg.cc/sx29C8yC/IMG-20260528-214431.jpg" },
         { name: "مراية 4 ملي", price: "1000", specs: "60×80 سم - تاتش ليد white", img: "https://i.postimg.cc/Ss1YCK05/IMG-20260528-214633.jpg" },
         { name: "مراية 4 ملي بيضاوي", price: "900", specs: "50×70 سم - تاتش ليد white", img: "https://i.postimg.cc/NMKmNXkS/IMG-20260528-214843.jpg" },
-        { name: "مراية 4 ملي راس فرنساوي", price: "1100", specs: "60×120 سم - ليد worm", img: "https://i.postimg.cc/ZYVzPyM8/IMG-20260528-215145.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1300", specs: "60×110 سم - تاتش ليد worm", img: "https://i.postimg.cc/BQKNSrH1/IMG-20260528-215344.jpg" },
-        { name: "مراية 4 ملي وحده رفوف", price: "2000", specs: "75×75 سم - ليد worm", img: "https://i.postimg.cc/kgjyf7dK/IMG-20260528-215544.jpg" },
-        { name: "مراية 4 ملي عشوائي", price: "1500", specs: "65×160 سم - ليد worm", img: "https://i.postimg.cc/xdzbMQjS/IMG-20260528-215832.jpg" },
-        { name: "مراية سراحه 4 ملي", price: "1500", specs: "90×125 سم - ليد worm", img: "https://i.postimg.cc/YSzMJDbm/IMG-20260528-220049.jpg" },
-        { name: "مراية 4 ملي", price: "800", specs: "60×80 سم - ليد worm", img: "https://i.postimg.cc/HkWqrW2x/IMG-20260528-220241.jpg" },
+        { name: "مراية 4 ملي راس فرنساوي", price: "1100", specs: "60×120 سم - ليد warm", img: "https://i.postimg.cc/ZYVzPyM8/IMG-20260528-215145.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1300", specs: "60×110 سم - تاتش ليد warm", img: "https://i.postimg.cc/BQKNSrH1/IMG-20260528-215344.jpg" },
+        { name: "مراية 4 ملي وحده رفوف", price: "2000", specs: "75×75 سم - ليد warm", img: "https://i.postimg.cc/kgjyf7dK/IMG-20260528-215544.jpg" },
+        { name: "مراية 4 ملي عشوائي", price: "1500", specs: "65×160 سم - ليد warm", img: "https://i.postimg.cc/xdzbMQjS/IMG-20260528-215832.jpg" },
+        { name: "مراية سراحه 4 ملي", price: "1500", specs: "90×125 سم - ليد warm", img: "https://i.postimg.cc/YSzMJDbm/IMG-20260528-220049.jpg" },
+        { name: "مراية 4 ملي", price: "800", specs: "60×80 سم - ليد warm", img: "https://i.postimg.cc/HkWqrW2x/IMG-20260528-220241.jpg" },
         { name: "مراية 4 ملي", price: "1000", specs: "60×80 سم - تاتش ليد white", img: "https://i.postimg.cc/tTbtgJ38/IMG-20260528-220426.jpg" },
-        { name: "مراية 4 ملي شطف كمبيوتر", price: "1800", specs: "70×140 سم - ليد worm", img: "https://i.postimg.cc/prp9VM6c/IMG-20260528-220645.jpg" },
-        { name: "مراية 4 ملي دوران", price: "900", specs: "قطر 70 سم - تاتش ليد worm", img: "https://i.postimg.cc/G2S25Sp1/IMG-20260528-220839.jpg" },
-        { name: "مراية 4 ملي فريم دوران إسود مستورد", price: "1800", specs: "قطر 80 سم - تاتش ليد worm", img: "https://i.postimg.cc/hjh4Tb1Q/IMG-20260528-220949.jpg" },
-        { name: "مراية 4 ملي دوران فريم دهبي مستورد", price: "1600", specs: "قطر 60 سم - تاتش ليد worm", img: "https://i.postimg.cc/66v2PtCz/IMG-20260528-221122.jpg" },
+        { name: "مراية 4 ملي شطف كمبيوتر", price: "1800", specs: "70×140 سم - ليد warm", img: "https://i.postimg.cc/prp9VM6c/IMG-20260528-220645.jpg" },
+        { name: "مراية 4 ملي دوران", price: "900", specs: "قطر 70 سم - تاتش ليد warm", img: "https://i.postimg.cc/G2S25Sp1/IMG-20260528-220839.jpg" },
+        { name: "مراية 4 ملي فريم دوران إسود مستورد", price: "1800", specs: "قطر 80 سم - تاتش ليد warm", img: "https://i.postimg.cc/hjh4Tb1Q/IMG-20260528-220949.jpg" },
+        { name: "مراية 4 ملي دوران فريم دهبي مستورد", price: "1600", specs: "قطر 60 سم - تاتش ليد warm", img: "https://i.postimg.cc/66v2PtCz/IMG-20260528-221122.jpg" },
         { name: "مراية 4 ملي بيضاوي", price: "1000", specs: "60×80 سم - تاتش ليد white", img: "https://i.postimg.cc/fbmpF3TL/IMG-20260528-221306.jpg" },
         { name: "مراية 4 ملي", price: "1400", specs: "100×100 سم - ليد White", img: "https://i.postimg.cc/Y0ZxM3bf/IMG-20260528-221500.jpg" },
         { name: "مراية 4 ملي راس فرنساوي", price: "900", specs: "50×70 سم - ليد White", img: "https://i.postimg.cc/k41QymRg/FB-IMG-1779997355155.jpg" },
-        { name: "مراية 4 ملي", price: "1000", specs: "60×80 سم - تاتش ليد worm", img: "https://i.postimg.cc/qMjNhLng/FB-IMG-1779997624804.jpg" },
-        { name: "مراية 4 ملي عشوائي شطف كمبيوتر", price: "1800", specs: "65×160 سم - تاتش ليد worm", img: "https://i.postimg.cc/MHZWqC93/IMG-20260528-224835.jpg" },
-        { name: "مراية 4 ملي عشوائي شطف كمبيوتر", price: "1800", specs: "65×160 سم - تاتش ليد worm", img: "https://i.postimg.cc/FzKQ2jKx/IMG-20260528-224950.jpg" },
-        { name: "مراية 4 ملي دوران", price: "1000", specs: "قطر 80 سم - تاتش ليد worm", img: "https://i.postimg.cc/V6fyCjXz/IMG-20260528-225101.jpg" },
-        { name: "مراية 4 ملي", price: "1000", specs: "60×80 سم - تاتش ليد worm", img: "https://i.postimg.cc/ZRKgRJhP/IMG-20260528-225247.jpg" },
-        { name: "مراية 4 ملي بيضاوي", price: "800", specs: "60×80 سم - ليد worm", img: "https://i.postimg.cc/W1GfwdNw/IMG-20260528-225358.jpg" },
-        { name: "مراية 4 ملي بيضاوي", price: "800", specs: "60×80 سم - ليد worm", img: "https://i.postimg.cc/dQzYWTYy/IMG-20260528-225458.jpg" },
-        { name: "مراية 4 ملي فريم دهبي مستورد", price: "2000", specs: "65×160 سم - ليد worm", img: "https://i.postimg.cc/MHBhkdS0/IMG-20260528-225555.jpg" },
-        { name: "مراية 4 ملي الغيمة", price: "900", specs: "65×85 سم - ليد worm", img: "https://i.postimg.cc/Xq9D1qfg/IMG-20260528-225730.jpg" },
-        { name: "مراية 4 ملي", price: "800", specs: "60×80 سم - ليد worm", img: "https://i.postimg.cc/fTjrx3Tf/IMG-20260528-225210.jpg" },
-        { name: "مراية 4 ملي", price: "2000", specs: "100×150 سم - تاتش ليد worm", img: "https://i.postimg.cc/yxhvX5B8/IMG-20260528-225925.jpg" }
+        { name: "مراية 4 ملي", price: "1000", specs: "60×80 سم - تاتش ليد warm", img: "https://i.postimg.cc/qMjNhLng/FB-IMG-1779997624804.jpg" },
+        { name: "مراية 4 ملي عشوائي شطف كمبيوتر", price: "1800", specs: "65×160 سم - تاتش ليد warm", img: "https://i.postimg.cc/MHZWqC93/IMG-20260528-224835.jpg" },
+        { name: "مراية 4 ملي عشوائي شطف كمبيوتر", price: "1800", specs: "65×160 سم - تاتش ليد warm", img: "https://i.postimg.cc/FzKQ2jKx/IMG-20260528-224950.jpg" },
+        { name: "مراية 4 ملي دوران", price: "1000", specs: "قطر 80 سم - تاتش ليد warm", img: "https://i.postimg.cc/V6fyCjXz/IMG-20260528-225101.jpg" },
+        { name: "مراية 4 ملي", price: "1000", specs: "60×80 سم - تاتش ليد warm", img: "https://i.postimg.cc/ZRKgRJhP/IMG-20260528-225247.jpg" },
+        { name: "مراية 4 ملي بيضاوي", price: "800", specs: "60×80 سم - ليد warm", img: "https://i.postimg.cc/W1GfwdNw/IMG-20260528-225358.jpg" },
+        { name: "مراية 4 ملي بيضاوي", price: "800", specs: "60×80 سم - ليد warm", img: "https://i.postimg.cc/dQzYWTYy/IMG-20260528-225458.jpg" },
+        { name: "مراية 4 ملي فريم دهبي مستورد", price: "2000", specs: "65×160 سم - ليد warm", img: "https://i.postimg.cc/MHBhkdS0/IMG-20260528-225555.jpg" },
+        { name: "مراية 4 ملي الغيمة", price: "900", specs: "65×85 سم - ليد warm", img: "https://i.postimg.cc/Xq9D1qfg/IMG-20260528-225730.jpg" },
+        { name: "مراية 4 ملي", price: "800", specs: "60×80 سم - ليد warm", img: "https://i.postimg.cc/fTjrx3Tf/IMG-20260528-225210.jpg" },
+        { name: "مراية 4 ملي", price: "2000", specs: "100×150 سم - تاتش ليد warm", img: "https://i.postimg.cc/yxhvX5B8/IMG-20260528-225925.jpg" }
     ];
 
     let currentProducts = [...productsRaw];
@@ -457,11 +428,12 @@
             img.alt = p.name;
             img.onerror = function() {
                 this.style.display = 'none';
-                const fb = document.createElement('div');
-                fb.className = 'img-fallback';
-                fb.style.cssText = 'display:flex; align-items:center; justify-content:center; flex-direction:column; background:#f3efe7; height:100%; color:#7f8c8d; text-align:center; padding:1rem;';
-                fb.innerHTML = `<i class="fas fa-image-slash" style="font-size:3rem; margin-bottom:1rem;"></i><br>${p.name}<br><small>تعذر تحميل الصورة</small>`;
-                imgWrap.appendChild(fb);
+                const fallback = document.createElement('div');
+                fallback.className = 'img-fallback';
+                fallback.innerHTML = `<i class="fas fa-image-slash" style="font-size:2.8rem;"></i><br>${p.name}<br><small>تعذر التحميل<br>اضغط للفتح</small>`;
+                fallback.style.cursor = 'pointer';
+                fallback.onclick = () => window.open(p.img, '_blank');
+                imgWrap.appendChild(fallback);
             };
             imgWrap.appendChild(img);
             const priceDiv = document.createElement('div');
@@ -469,7 +441,7 @@
             priceDiv.innerText = p.price + ' ج.م';
             const layer = document.createElement('div');
             layer.className = 'portfolio-layer';
-            layer.innerHTML = `<h4>${p.name}</h4><p>${p.specs}</p><button class="btn btn-outline" style="padding:0.8rem 1.8rem; font-size:1.5rem;">اطلب عبر واتساب <i class="fab fa-whatsapp"></i></button>`;
+            layer.innerHTML = `<h4>${p.name}</h4><p>${p.specs}</p><button class="btn btn-outline">اطلب عبر واتساب <i class="fab fa-whatsapp"></i></button>`;
             const btn = layer.querySelector('button');
             btn.onclick = (e) => { e.stopPropagation(); orderWhatsApp(p.name, p.specs, p.price); };
             box.appendChild(imgWrap);
@@ -479,20 +451,20 @@
         }
     }
 
+    // الأزرار المساعدة
+    document.getElementById('fixImagesBtn')?.addEventListener('click', () => { renderProducts(); alert("تم إعادة محاولة تحميل الصور. إذا لم تظهر، استخدم زر 'فتح الصورة في تبويب'."); });
     document.getElementById('changeHostBtn')?.addEventListener('click', () => {
-        let newHost = prompt("أدخل رابط الاستضافة البديل (مثل i.ibb.co أو i.imgur.com) مع الاحتفاظ بنفس أسماء الملفات:", "i.postimg.cc");
-        if (newHost && newHost.trim() !== "") {
-            currentProducts = productsRaw.map(p => ({
-                ...p,
-                img: p.img.replace('i.postimg.cc', newHost.trim())
-            }));
+        let newHost = prompt("أدخل رابط الاستضافة البديل (مثل i.ibb.co):", "i.postimg.cc");
+        if (newHost && newHost.trim()) {
+            currentProducts = productsRaw.map(p => ({ ...p, img: p.img.replace('i.postimg.cc', newHost.trim()) }));
             renderProducts();
-            alert(`تم تغيير رابط الصور إلى ${newHost}. إذا لم تظهر الصور، فالخدمة الجديدة لا تحتوي على الملفات. أعد تحميل الصفحة لاستعادة الرابط الأصلي.`);
+            alert(`تم تغيير الرابط إلى ${newHost}. إذا لم تظهر الصور فالمضيف الجديد لا يحتوي عليها.`);
         } else renderProducts();
     });
-    document.getElementById('fixImagesBtn')?.addEventListener('click', () => {
-        renderProducts();
-        alert("تم تحديث محاولة تحميل الصور. إذا لم تظهر، قد يكون موقع i.postimg.cc محظوراً. جرب استخدام VPN أو زر 'تغيير رابط الاستضافة'.");
+    document.getElementById('openImgHelp')?.addEventListener('click', () => {
+        let url = prompt("أدخل رابط الصورة (أو اتركه لفتح أول منتج):", currentProducts[0]?.img);
+        if (url) window.open(url, '_blank');
+        else if (currentProducts[0]) window.open(currentProducts[0].img, '_blank');
     });
 
     // تأثير الكتابة
@@ -519,7 +491,7 @@
     setTimeout(type, 400);
 
     particlesJS('particles-js', {
-        particles: { number: { value: 35 }, color: { value: "#c6a43b" }, opacity: { value: 0.25 }, size: { value: 2.5 }, move: { speed: 0.8 } },
+        particles: { number: { value: 30 }, color: { value: "#c6a43b" }, opacity: { value: 0.2 }, size: { value: 2.5 }, move: { speed: 0.7 } },
         interactivity: { events: { onhover: { enable: true, mode: "grab" } } }
     });
 
