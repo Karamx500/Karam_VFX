@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Mohamed Glass | 74 مراية فاخرة</title>
+    <title>Mohamed Glass | 74 مراية فاخرة - تعمل على التلفون</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
@@ -93,11 +93,6 @@
         }
         .whatsapp-btn:hover { background: var(--primary); border-color: var(--primary); color: #1e2a36; }
 
-        .img-fallback {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: #f0e9df; color: #8b7355; height: 100%; text-align: center;
-            font-size: 1.4rem; gap: 0.8rem; cursor: pointer;
-        }
         .fix-host-btn {
             background: var(--primary); border: none; padding: 0.8rem 1.8rem;
             border-radius: 40px; font-weight: bold; font-size: 1.4rem; margin: 0.5rem;
@@ -156,11 +151,6 @@
 <section id="products">
     <h2 class="section-title">أحدث <span class="accent">تصميماتنا</span> (74 مراية)</h2>
     <p style="text-align:center; font-size:1.7rem; margin-bottom:0.5rem;">📱 اضغط على أي منتج للطلب عبر واتساب</p>
-    <div style="text-align:center; margin: 1rem 0;">
-        <button id="fixImagesBtn" class="fix-host-btn"><i class="fas fa-sync-alt"></i> إعادة محاولة التحميل</button>
-        <button id="changeHostBtn" class="fix-host-btn" style="background:#5c6b7a;"><i class="fas fa-globe"></i> تغيير رابط الاستضافة</button>
-        <button id="howToFixBtn" class="fix-host-btn" style="background:#8b7a66;"><i class="fas fa-question-circle"></i> حل مشكلة الصور</button>
-    </div>
     <div class="portfolio-container" id="productContainer"></div>
 </section>
 
@@ -181,7 +171,7 @@
 <footer class="footer"><p>© 2026 Mohamed Glass - جميع الحقوق محفوظة</p></footer>
 
 <script>
-    // جميع المنتجات (74) كما هي، مع تصحيح warm
+    // جميع المنتجات (74) مع تصحيح warm
     const productsRaw = [
         { name: "مراية 4 ملي", price: "950", specs: "60×80 سم - إضاءة ليد warm", img: "https://i.postimg.cc/bNd2yqhh/IMG-20260528-194701.jpg" },
         { name: "مراية 4 ملي عشوائي بإستاند", price: "2000", specs: "65×160 سم - تاتش ليد warm", img: "https://i.postimg.cc/KYQZ3gPD/IMG-20260528-194913.jpg" },
@@ -259,7 +249,13 @@
         { name: "مراية 4 ملي", price: "2000", specs: "100×150 سم - تاتش ليد warm", img: "https://i.postimg.cc/yxhvX5B8/IMG-20260528-225925.jpg" }
     ];
 
-    let currentProducts = [...productsRaw];
+    // دالة لتحويل الرابط ليعمل عبر الـ proxy
+    function getProxyUrl(originalUrl) {
+        // نستخدم خدمة images.weserv.nl وهي سريعة وآمنة وتعبر الحظر
+        return `https://images.weserv.nl/?url=${encodeURIComponent(originalUrl)}&w=500&h=500&fit=cover`;
+    }
+
+    let currentProducts = productsRaw.map(p => ({ ...p, imgProxy: getProxyUrl(p.img) }));
 
     function orderViaWhatsApp(name, specs, price) {
         const msg = `مرحباً محمد، أريد طلب المراية التالية:%0A%0Aالموديل: ${name}%0Aالمواصفات: ${specs}%0Aالسعر: ${price} جنيه`;
@@ -278,13 +274,14 @@
             imgWrap.style.position = 'relative';
             const img = document.createElement('img');
             img.className = 'product-image';
-            img.src = p.img;
+            img.src = p.imgProxy;  // استخدام رابط الـ proxy
             img.alt = p.name;
+            // في حال فشل الـ proxy أيضاً نعرض رابط الصورة الأصلي للضغط
             img.onerror = function() {
                 this.style.display = 'none';
                 const fb = document.createElement('div');
-                fb.className = 'img-fallback';
-                fb.innerHTML = `<i class="fas fa-image-slash" style="font-size:2.5rem;"></i><br>${p.name}<br><span style="font-size:1.2rem;">اضغط لفتح الرابط</span>`;
+                fb.style.cssText = 'display:flex; flex-direction:column; align-items:center; justify-content:center; background:#f0e9df; color:#8b7355; height:100%; text-align:center; font-size:1.4rem; gap:0.8rem; cursor:pointer;';
+                fb.innerHTML = `<i class="fas fa-image-slash" style="font-size:2.5rem;"></i><br>${p.name}<br><span style="font-size:1.2rem;">اضغط لفتح الصورة</span>`;
                 fb.onclick = () => window.open(p.img, '_blank');
                 imgWrap.appendChild(fb);
             };
@@ -311,19 +308,6 @@
             container.appendChild(box);
         }
     }
-
-    document.getElementById('fixImagesBtn')?.addEventListener('click', () => renderProducts());
-    document.getElementById('changeHostBtn')?.addEventListener('click', () => {
-        let newHost = prompt("أدخل رابط الاستضافة البديل (مثل i.ibb.co):", "i.postimg.cc");
-        if (newHost && newHost.trim()) {
-            currentProducts = productsRaw.map(p => ({ ...p, img: p.img.replace('i.postimg.cc', newHost.trim()) }));
-            renderProducts();
-            alert(`تم تغيير الرابط إلى ${newHost}. إذا لم تظهر الصور، فالمضيف الجديد لا يحتوي على هذه الملفات.\n\nالحل الأمثل: ارفع صورك على Imgur.com واستخدم رابط مشابه.`);
-        }
-    });
-    document.getElementById('howToFixBtn')?.addEventListener('click', () => {
-        alert("🔧 حل مشكلة عدم ظهور الصور على الهاتف:\n\n1️⃣ موقع i.postimg.cc قد يكون محظوراً في شبكتك.\n2️⃣ الحل السريع: اضغط على الصورة (المربع الرمادي) لتفتح الرابط في المتصفح.\n3️⃣ الحل الدائم: ارفع جميع الصور على موقع Imgur (مجاني) ثم استخدم زر 'تغيير رابط الاستضافة' وأدخل 'i.imgur.com'.\n4️⃣ أو استخدم أي خدمة استضافة أخرى وضع روابطها المباشرة.\n\nلأي استفسار، تواصل معنا على واتساب.");
-    });
 
     // تأثير الكتابة
     const typedSpan = document.querySelector(".typing-text");
