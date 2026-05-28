@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
 
         :root {
@@ -22,100 +28,28 @@
             --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        html {
-            font-size: 62.5%;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg-main);
-            color: var(--text);
-            line-height: 1.5;
-        }
-
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.3;
-        }
+        html { font-size: 62.5%; scroll-behavior: smooth; }
+        body { background: var(--bg-main); color: var(--text); line-height: 1.5; }
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; opacity: 0.3; }
 
         header {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100%;
-            padding: 1.4rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(254, 250, 242, 0.96);
-            backdrop-filter: blur(12px);
-            z-index: 1000;
-            box-shadow: 0 1px 12px rgba(0,0,0,0.03);
+            position: fixed; top: 0; right: 0; width: 100%; padding: 1.4rem 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(254, 250, 242, 0.96); backdrop-filter: blur(12px); z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-
-        .logo-text {
-            font-size: 2.6rem;
-            font-weight: 800;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .logo-text span {
-            color: var(--secondary);
-            -webkit-text-fill-color: var(--secondary);
-        }
-
-        nav {
-            display: flex;
-            gap: 2.5rem;
-        }
-        nav a {
-            font-size: 1.65rem;
-            font-weight: 600;
-            color: var(--text);
-        }
+        .logo-text { font-size: 2.6rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-text span { color: var(--secondary); -webkit-text-fill-color: var(--secondary); }
+        nav { display: flex; gap: 2.5rem; }
+        nav a { font-size: 1.65rem; font-weight: 600; color: var(--text); text-decoration: none; }
         nav a:hover, nav a.active { color: var(--primary); }
-
-        #menu-icon {
-            font-size: 2.8rem;
-            display: none;
-            cursor: pointer;
-        }
-
-        section {
-            padding: 11rem 5% 7rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: 0.5s ease;
-        }
+        #menu-icon { font-size: 2.8rem; display: none; cursor: pointer; }
+        section { padding: 11rem 5% 7rem; opacity: 0; transform: translateY(20px); transition: 0.5s ease; }
         section.show { opacity: 1; transform: translateY(0); }
-
-        .section-title {
-            font-size: 3.6rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
+        .section-title { font-size: 3.6rem; text-align: center; margin-bottom: 1.5rem; font-weight: 800; }
         .accent { color: var(--primary); }
 
-        /* الهوم */
-        .home {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            min-height: 85vh;
-        }
+        .home { display: flex; align-items: center; gap: 4rem; min-height: 85vh; }
         .home-content h1 { font-size: 5rem; line-height: 1.2; }
         .home-content h3 { font-size: 2.6rem; color: var(--text-light); margin: 1rem 0; }
         .typing-text { color: var(--primary); }
@@ -123,142 +57,77 @@
         .home-img img { border-radius: 28px; width: 100%; max-width: 380px; box-shadow: var(--shadow-sm); }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 3rem;
-            background: var(--gradient);
-            color: white;
-            border-radius: 60px;
-            font-weight: 800;
-            font-size: 1.6rem;
-            transition: 0.2s;
+            display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.2rem 3rem;
+            background: var(--gradient); color: white; border-radius: 60px; font-weight: 800;
+            font-size: 1.6rem; transition: 0.2s; cursor: pointer; border: none;
+            text-decoration: none;
         }
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
         .btn-outline:hover { background: var(--primary); color: white; }
 
-        /* معرض المنتجات */
         .portfolio-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 2.5rem; margin-top: 4rem;
         }
         .portfolio-box {
-            background: var(--card-bg);
-            border-radius: 28px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            transition: 0.25s;
-            height: 420px;
-            position: relative;
-            box-shadow: var(--shadow-sm);
+            background: var(--card-bg); border-radius: 28px; overflow: hidden;
+            border: 1px solid var(--border-color); transition: 0.25s; height: 420px;
+            position: relative; box-shadow: var(--shadow-sm);
         }
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.3s;
-        }
+        .product-image { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
         .portfolio-box:hover .product-image { transform: scale(1.02); }
         .price-tag {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: var(--gradient);
-            color: white;
-            padding: 0.5rem 1.6rem;
-            border-radius: 40px;
-            font-weight: 800;
-            font-size: 1.7rem;
-            z-index: 5;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: absolute; top: 16px; left: 16px; background: var(--gradient);
+            color: white; padding: 0.5rem 1.6rem; border-radius: 40px; font-weight: 800;
+            font-size: 1.7rem; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .portfolio-layer {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
+            position: absolute; bottom: 0; right: 0; width: 100%;
             background: linear-gradient(0deg, rgba(0,0,0,0.85), rgba(0,0,0,0.4));
-            backdrop-filter: blur(3px);
-            padding: 1.8rem 1.2rem;
-            text-align: center;
-            transform: translateY(100%);
-            transition: 0.3s;
+            backdrop-filter: blur(3px); padding: 1.8rem 1.2rem; text-align: center;
+            transform: translateY(100%); transition: 0.3s;
         }
         .portfolio-box:hover .portfolio-layer { transform: translateY(0); }
         .portfolio-layer h4 { color: #fff3e6; font-size: 2rem; font-weight: 800; }
         .portfolio-layer p { color: #f0e2d0; font-size: 1.5rem; margin: 0.5rem 0 1rem; }
-        .portfolio-layer .btn-outline { background: rgba(0,0,0,0.4); border-color: #ffdfaa; color: #fff; padding: 0.6rem 1.6rem; font-size: 1.4rem; }
+        .portfolio-layer .whatsapp-btn {
+            background: rgba(0,0,0,0.5); border: 2px solid #ffdfaa; color: #fff;
+            padding: 0.7rem 1.8rem; border-radius: 40px; font-size: 1.5rem;
+            font-weight: bold; cursor: pointer; transition: 0.2s; display: inline-flex;
+            align-items: center; gap: 0.5rem;
+        }
+        .portfolio-layer .whatsapp-btn:hover { background: var(--primary); border-color: var(--primary); color: #1e2a36; }
 
-        /* الأقسام الأخرى */
         .proof-grid, .process-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem; margin-top: 3rem;
         }
         .proof-card, .process-step {
-            background: var(--bg-alt);
-            padding: 2rem 1.2rem;
-            border-radius: 28px;
-            border: 1px solid var(--border-color);
-            text-align: center;
+            background: var(--bg-alt); padding: 2rem 1.2rem; border-radius: 28px;
+            border: 1px solid var(--border-color); text-align: center;
         }
         .proof-card i, .process-step i { font-size: 3.8rem; color: var(--primary); margin-bottom: 0.8rem; }
         .fix-host-btn {
-            background: var(--primary);
-            border: none;
-            padding: 0.8rem 1.8rem;
-            border-radius: 40px;
-            font-weight: bold;
-            font-size: 1.4rem;
-            margin: 0.5rem;
+            background: var(--primary); border: none; padding: 0.8rem 1.8rem;
+            border-radius: 40px; font-weight: bold; font-size: 1.4rem; margin: 0.5rem;
             cursor: pointer;
         }
-        .footer {
-            background: #e6dfd1;
-            color: var(--secondary);
-            text-align: center;
-            padding: 2rem;
-            font-size: 1.4rem;
-        }
+        .footer { background: #e6dfd1; color: var(--secondary); text-align: center; padding: 2rem; font-size: 1.4rem; }
+
         @media (max-width: 768px) {
             html { font-size: 55%; }
             .home { flex-direction: column; text-align: center; gap: 1rem; }
             #menu-icon { display: block; }
             nav {
-                position: absolute;
-                top: 100%;
-                right: 0;
-                width: 100%;
-                background: #fffcf5;
-                flex-direction: column;
-                padding: 2rem;
-                display: none;
-                border-radius: 0 0 24px 24px;
-                box-shadow: 0 20px 30px rgba(0,0,0,0.05);
+                position: absolute; top: 100%; right: 0; width: 100%; background: #fffcf5;
+                flex-direction: column; padding: 2rem; display: none; border-radius: 0 0 24px 24px;
             }
             nav.active { display: flex; }
             .portfolio-box { height: 380px; }
         }
         .img-fallback {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background: #f4efe8;
-            color: #a28f77;
-            height: 100%;
-            text-align: center;
-            font-size: 1.4rem;
-            padding: 1rem;
-        }
-        .whatsapp-link {
+            display: flex; align-items: center; justify-content: center; flex-direction: column;
+            background: #f4efe8; color: #a28f77; height: 100%; text-align: center; font-size: 1.4rem;
             cursor: pointer;
         }
     </style>
@@ -305,7 +174,6 @@
     <div style="text-align:center; margin: 1rem 0;">
         <button id="fixImagesBtn" class="fix-host-btn"><i class="fas fa-sync-alt"></i> إعادة تحميل الصور</button>
         <button id="changeHostBtn" class="fix-host-btn" style="background:#5c6b7a;"><i class="fas fa-globe"></i> تغيير رابط الاستضافة</button>
-        <button id="openImgHelp" class="fix-host-btn" style="background:#8b7a66;"><i class="fas fa-external-link-alt"></i> فتح الصورة في تبويب</button>
     </div>
     <div class="portfolio-container" id="productContainer"></div>
 </section>
@@ -327,7 +195,7 @@
 <footer class="footer"><p>© 2026 Mohamed Glass - جميع الحقوق محفوظة</p></footer>
 
 <script>
-    // جميع المنتجات (74) مع تغيير worm -> warm
+    // البيانات الكاملة (تم تعديل warm وكل شيء)
     const productsRaw = [
         { name: "مراية 4 ملي", price: "950", specs: "60×80 سم - إضاءة ليد warm", img: "https://i.postimg.cc/bNd2yqhh/IMG-20260528-194701.jpg" },
         { name: "مراية 4 ملي عشوائي بإستاند", price: "2000", specs: "65×160 سم - تاتش ليد warm", img: "https://i.postimg.cc/KYQZ3gPD/IMG-20260528-194913.jpg" },
@@ -407,11 +275,15 @@
 
     let currentProducts = [...productsRaw];
 
-    function orderWhatsApp(name, specs, price) {
-        const msg = `مرحباً محمد، أريد طلب المراية التالية:%0A%0Aالموديل: ${name}%0Aالمواصفات: ${specs}%0Aالسعر: ${price} جنيه%0Aيرجى تأكيد الطلب.`;
-        window.open(`https://wa.me/201224318584?text=${msg}`, '_blank');
+    // دالة الطلب عبر واتساب
+    function orderViaWhatsApp(name, specs, price) {
+        const phone = "201224318584";
+        const message = `مرحباً محمد، أريد طلب المراية التالية:%0A%0Aالموديل: ${name}%0Aالمواصفات: ${specs}%0Aالسعر: ${price} جنيه%0Aيرجى تأكيد الطلب.`;
+        const url = `https://wa.me/${phone}?text=${message}`;
+        window.open(url, '_blank');
     }
 
+    // عرض المنتجات مع ربط آمن للزر
     function renderProducts() {
         const container = document.getElementById('productContainer');
         if (!container) return;
@@ -428,12 +300,11 @@
             img.alt = p.name;
             img.onerror = function() {
                 this.style.display = 'none';
-                const fallback = document.createElement('div');
-                fallback.className = 'img-fallback';
-                fallback.innerHTML = `<i class="fas fa-image-slash" style="font-size:2.8rem;"></i><br>${p.name}<br><small>تعذر التحميل<br>اضغط للفتح</small>`;
-                fallback.style.cursor = 'pointer';
-                fallback.onclick = () => window.open(p.img, '_blank');
-                imgWrap.appendChild(fallback);
+                const fb = document.createElement('div');
+                fb.className = 'img-fallback';
+                fb.innerHTML = `<i class="fas fa-image-slash" style="font-size:2.8rem;"></i><br>${p.name}<br><small>اضغط لفتح الصورة</small>`;
+                fb.onclick = () => window.open(p.img, '_blank');
+                imgWrap.appendChild(fb);
             };
             imgWrap.appendChild(img);
             const priceDiv = document.createElement('div');
@@ -441,9 +312,21 @@
             priceDiv.innerText = p.price + ' ج.م';
             const layer = document.createElement('div');
             layer.className = 'portfolio-layer';
-            layer.innerHTML = `<h4>${p.name}</h4><p>${p.specs}</p><button class="btn btn-outline">اطلب عبر واتساب <i class="fab fa-whatsapp"></i></button>`;
-            const btn = layer.querySelector('button');
-            btn.onclick = (e) => { e.stopPropagation(); orderWhatsApp(p.name, p.specs, p.price); };
+            // إنشاء زر منفصل وربطه مباشرة
+            const btn = document.createElement('button');
+            btn.className = 'whatsapp-btn';
+            btn.innerHTML = '<i class="fab fa-whatsapp"></i> اطلب عبر واتساب';
+            btn.onclick = (e) => {
+                e.stopPropagation();
+                orderViaWhatsApp(p.name, p.specs, p.price);
+            };
+            const title = document.createElement('h4');
+            title.textContent = p.name;
+            const desc = document.createElement('p');
+            desc.textContent = p.specs;
+            layer.appendChild(title);
+            layer.appendChild(desc);
+            layer.appendChild(btn);
             box.appendChild(imgWrap);
             box.appendChild(priceDiv);
             box.appendChild(layer);
@@ -451,8 +334,8 @@
         }
     }
 
-    // الأزرار المساعدة
-    document.getElementById('fixImagesBtn')?.addEventListener('click', () => { renderProducts(); alert("تم إعادة محاولة تحميل الصور. إذا لم تظهر، استخدم زر 'فتح الصورة في تبويب'."); });
+    // أزرار المساعدة
+    document.getElementById('fixImagesBtn')?.addEventListener('click', () => { renderProducts(); alert("تم إعادة تحميل الصور، إذا لم تظهر اضغط على الصورة لفتحها."); });
     document.getElementById('changeHostBtn')?.addEventListener('click', () => {
         let newHost = prompt("أدخل رابط الاستضافة البديل (مثل i.ibb.co):", "i.postimg.cc");
         if (newHost && newHost.trim()) {
@@ -460,11 +343,6 @@
             renderProducts();
             alert(`تم تغيير الرابط إلى ${newHost}. إذا لم تظهر الصور فالمضيف الجديد لا يحتوي عليها.`);
         } else renderProducts();
-    });
-    document.getElementById('openImgHelp')?.addEventListener('click', () => {
-        let url = prompt("أدخل رابط الصورة (أو اتركه لفتح أول منتج):", currentProducts[0]?.img);
-        if (url) window.open(url, '_blank');
-        else if (currentProducts[0]) window.open(currentProducts[0].img, '_blank');
     });
 
     // تأثير الكتابة
