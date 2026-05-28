@@ -118,7 +118,7 @@
                 box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             }
             nav.active { display: flex; }
-            .portfolio-box { height: 400px; }
+            .portfolio-box { height: 400px; background: #f9f9f9; }
             
             /* Make text always visible on mobile */
             .portfolio-layer {
@@ -127,6 +127,10 @@
                 padding-top: 4rem;
             }
             .whatsapp-btn { padding: 0.8rem 2rem; font-size: 1.5rem; }
+            
+            /* حل مشكلة عدم ظهور الموقع على الموبايل والشاشة البيضاء */
+            section { opacity: 1 !important; transform: none !important; }
+            #particles-js { display: none !important; }
         }
     </style>
 </head>
@@ -285,18 +289,20 @@
     // دالة الطلب عبر واتساب مع تشفير النص ليعمل برمجياً بشكل صحيح
     function orderViaWhatsApp(name, specs, price) {
         // تجهيز الرسالة بشكل منسق
-        const msg = `مرحباً محمد جلاس، أريد طلب هذه المراية:
-🔸 الموديل: ${name}
-📏 المواصفات: ${specs}
-💰 السعر: ${price} ج.م`;
+        const msg = `مرحباً محمد جلاس، أريد طلب هذه المراية:\n🔸 الموديل: ${name}\n📏 المواصفات: ${specs}\n💰 السعر: ${price} ج.م`;
 
         // تشفير النص (URL Encoding) لكي يقبله متصفح الهاتف وتطبيق واتساب
         const encodedMsg = encodeURIComponent(msg);
         
-        // استخدام رقم الهاتف مع مفتاح الدولة (+) لضمان عمل الرابط دائماً
-        const waUrl = `https://wa.me/+201224318584?text=${encodedMsg}`;
+        // إزالة علامة + لضمان التوافق مع تطبيق الواتساب على جميع الهواتف
+        const waUrl = `https://wa.me/201224318584?text=${encodedMsg}`;
         
-        window.open(waUrl, '_blank');
+        // في الموبايل نقوم بالتوجيه في نفس الصفحة لتجنب حظر النوافذ (Popup blocker)
+        if(window.innerWidth <= 768) {
+            window.location.href = waUrl;
+        } else {
+            window.open(waUrl, '_blank');
+        }
     }
 
     // دالة لإنشاء وعرض المنتجات
@@ -310,8 +316,9 @@
             const box = document.createElement('div');
             box.className = 'portfolio-box';
             
-            // إضافة خاصية التحميل الكسول (lazy loading) لتسريع الموقع
-            const imgHTML = `<img class="product-image" src="${p.img}" alt="${p.name}" loading="lazy">`;
+            // إضافة خاصية التحميل الكسول وبروكسي قوي (wsrv) لتخطي حظر الصور على شبكات الموبايل في مصر
+            const proxyUrl = `https://wsrv.nl/?url=${p.img}&w=400&h=500&fit=cover`;
+            const imgHTML = `<img class="product-image" src="${proxyUrl}" alt="${p.name}" loading="lazy" onerror="this.onerror=null; this.src='${p.img}';">`;
             
             // تجهيز السعر
             const priceHTML = `<div class="price-tag">${p.price} ج.م</div>`;
@@ -357,8 +364,8 @@
     }
     if(typedSpan) setTimeout(type, 400);
 
-    // تفعيل الخلفية المتحركة (Particles)
-    if(typeof particlesJS !== 'undefined') {
+    // تفعيل الخلفية المتحركة (Particles) على شاشات الكمبيوتر فقط لتخفيف الحمل على الموبايل
+    if(typeof particlesJS !== 'undefined' && window.innerWidth > 768) {
         particlesJS('particles-js', { 
             particles: { 
                 number: { value: 30 }, 
