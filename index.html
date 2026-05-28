@@ -10,16 +10,16 @@
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
 
         :root {
-            --primary: #d4af37;
-            --secondary: #1a2a3a;
-            --bg-main: #f8f9fa;
+            --primary: #c6a43b;      /* ذهبي هادئ */
+            --secondary: #2c3e4e;    /* كحلي ناعم */
+            --bg-main: #fefcf5;      /* خلفية بيج فاتح مريح */
             --bg-alt: #ffffff;
-            --primary-glow: rgba(212, 175, 55, 0.4);
             --card-bg: #ffffff;
-            --border-color: #e1e4e8;
-            --text: #1a2a3a;
-            --text-secondary: #5c6b7a;
-            --gradient: linear-gradient(135deg, #d4af37 0%, #b5952f 100%);
+            --border-color: #e8e2d5;
+            --text: #2c3e4e;
+            --text-light: #5d6e7e;
+            --gradient: linear-gradient(135deg, #d4af37 0%, #b68b2d 100%);
+            --shadow-sm: 0 8px 20px rgba(0,0,0,0.03);
         }
 
         * {
@@ -37,7 +37,7 @@
         body {
             background: var(--bg-main);
             color: var(--text);
-            overflow-x: hidden;
+            line-height: 1.5;
         }
 
         #particles-js {
@@ -45,6 +45,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
+            opacity: 0.4;
         }
 
         header {
@@ -52,15 +53,15 @@
             top: 0;
             right: 0;
             width: 100%;
-            padding: 1.5rem 5%;
+            padding: 1.8rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
+            background: rgba(254, 252, 245, 0.92);
+            backdrop-filter: blur(12px);
             z-index: 1000;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .logo-text {
@@ -77,13 +78,13 @@
 
         nav {
             display: flex;
-            gap: 3rem;
+            gap: 3.5rem;
         }
         nav a {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 600;
             color: var(--text);
-            transition: 0.3s;
+            transition: 0.2s;
         }
         nav a:hover, nav a.active { color: var(--primary); }
 
@@ -94,153 +95,201 @@
         }
 
         section {
-            padding: 10rem 5% 6rem;
+            padding: 11rem 5% 7rem;
             opacity: 0;
-            transform: translateY(40px);
-            transition: 0.7s;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
         section.show { opacity: 1; transform: translateY(0); }
+
         .section-title {
-            font-size: 3.8rem;
+            font-size: 4rem;
             text-align: center;
             margin-bottom: 2rem;
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
         .accent { color: var(--primary); }
 
+        /* الهوم */
         .home {
             display: flex;
             align-items: center;
-            gap: 5rem;
+            gap: 6rem;
             min-height: 90vh;
         }
-        .home-content h1 { font-size: 5rem; line-height: 1.3; }
-        .home-content h3 { font-size: 2.8rem; color: var(--text-secondary); margin: 1rem 0; }
-        .typing-text { color: var(--primary); }
+        .home-content h1 { font-size: 5.5rem; line-height: 1.3; margin-bottom: 1rem; }
+        .home-content h3 { font-size: 3rem; color: var(--text-light); margin: 1rem 0; }
+        .typing-text { color: var(--primary); border-left: none; }
+        .home-content p { font-size: 1.9rem; color: var(--text-light); max-width: 550px; margin: 2rem 0; }
+        .home-img img { border-radius: 28px; width: 100%; max-width: 420px; box-shadow: var(--shadow-sm); border: 1px solid var(--border-color); }
+
+        /* الأزرار */
         .btn {
             display: inline-flex;
+            align-items: center;
             gap: 1rem;
-            padding: 1.2rem 3rem;
+            padding: 1.3rem 3.5rem;
             background: var(--gradient);
             color: white;
-            border-radius: 50px;
+            border-radius: 60px;
             font-weight: 800;
-            transition: 0.3s;
+            font-size: 1.7rem;
+            transition: all 0.2s;
+            box-shadow: 0 5px 12px rgba(198, 164, 59, 0.2);
         }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(198,164,59,0.25);}
         .btn-outline {
             background: transparent;
             border: 2px solid var(--primary);
             color: var(--primary);
+            box-shadow: none;
         }
         .btn-outline:hover { background: var(--primary); color: white; }
 
+        /* المنتجات (البطاقات) */
         .portfolio-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 5rem;
         }
         .portfolio-box {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 28px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            transition: 0.3s;
-            height: 380px;
+            transition: all 0.25s ease;
+            height: 420px;   /* أرتفاع أكبر قليلاً */
             position: relative;
+            box-shadow: var(--shadow-sm);
         }
-        .portfolio-box:hover { transform: translateY(-8px); border-color: var(--primary); }
+        .portfolio-box:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 18px 30px rgba(0,0,0,0.08);
+        }
         .product-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.4s;
+            transition: 0.35s;
         }
-        .portfolio-box:hover .product-image { transform: scale(1.03); }
+        .portfolio-box:hover .product-image { transform: scale(1.02); }
         .price-tag {
             position: absolute;
-            top: 15px;
-            left: 15px;
+            top: 18px;
+            left: 18px;
             background: var(--gradient);
             color: white;
-            padding: 5px 15px;
-            border-radius: 30px;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
             font-weight: 800;
+            font-size: 1.8rem;
             z-index: 5;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .portfolio-layer {
             position: absolute;
             bottom: 0;
             right: 0;
             width: 100%;
-            background: linear-gradient(transparent, rgba(0,0,0,0.85));
-            padding: 2rem;
+            background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
+            backdrop-filter: blur(4px);
+            padding: 2rem 1.5rem;
             text-align: center;
             transform: translateY(100%);
-            transition: 0.3s;
+            transition: 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
         }
         .portfolio-box:hover .portfolio-layer { transform: translateY(0); }
-        .portfolio-layer h4 { color: white; font-size: 2rem; }
-        .portfolio-layer p { color: #ddd; font-size: 1.4rem; margin: 0.5rem 0; }
+        .portfolio-layer h4 {
+            color: #f8f3e9;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+        }
+        .portfolio-layer p {
+            color: #f0e6d8;
+            font-size: 1.6rem;
+            margin-bottom: 1.4rem;
+            line-height: 1.4;
+        }
+        .portfolio-layer .btn-outline {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,215,120,0.8);
+            color: #fff5e6;
+            font-size: 1.5rem;
+            padding: 0.8rem 1.8rem;
+        }
+        .portfolio-layer .btn-outline:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #1e2a36;
+        }
 
+        /* المميزات والخطوات */
         .proof-grid, .process-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
+            gap: 2.5rem;
             margin-top: 4rem;
         }
         .proof-card, .process-step {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 20px;
+            background: var(--bg-alt);
+            padding: 2.5rem 1.5rem;
+            border-radius: 28px;
             border: 1px solid var(--border-color);
             text-align: center;
+            transition: 0.2s;
         }
-        .footer {
-            background: var(--secondary);
-            color: white;
-            text-align: center;
-            padding: 2rem;
+        .proof-card i, .process-step i {
+            font-size: 4.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .proof-card h3, .process-step h3 {
+            font-size: 2.1rem;
+            margin-bottom: 0.8rem;
         }
 
-        /* صورة بديلة */
-        .img-fallback {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background: #eee;
-            color: #999;
-            height: 100%;
-            width: 100%;
-            text-align: center;
-            font-size: 1.4rem;
-        }
+        /* الخلفية المخصصة */
         .fix-host-btn {
             background: var(--primary);
             border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 30px;
+            padding: 1rem 2rem;
+            border-radius: 50px;
             font-weight: bold;
+            font-size: 1.5rem;
             cursor: pointer;
-            margin-bottom: 1rem;
+            transition: 0.2s;
+            margin: 0.5rem;
+        }
+        .footer {
+            background: #e8e0d3;
+            color: var(--secondary);
+            text-align: center;
+            padding: 2.5rem;
+            font-size: 1.5rem;
         }
         @media (max-width: 768px) {
             html { font-size: 55%; }
-            .home { flex-direction: column; text-align: center; }
+            .home { flex-direction: column; text-align: center; gap: 2rem; }
             #menu-icon { display: block; }
             nav {
                 position: absolute;
                 top: 100%;
                 right: 0;
                 width: 100%;
-                background: white;
+                background: #fffcf7;
                 flex-direction: column;
                 padding: 2rem;
                 display: none;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                box-shadow: 0 15px 25px rgba(0,0,0,0.05);
+                border-radius: 0 0 24px 24px;
             }
             nav.active { display: flex; }
+            .portfolio-box { height: 380px; }
+            .portfolio-layer h4 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -263,29 +312,29 @@
         <h3>ارتقِ بتصميم منزلك</h3>
         <h1>أضف لمسة من <span class="accent typing-text"></span></h1>
         <h3>إلى مساحتك الخاصة</h3>
-        <p>أكثر من 74 تصميم فاخر من المرايات العصرية. جودة زجاج فائقة وإضاءة LED حديثة.</p>
+        <p>أكثر من 74 تصميم فاخر من المرايات العصرية. جودة زجاج فائقة وإضاءة LED حديثة، تناسب كل الأذواق.</p>
         <a href="https://wa.me/201224318584" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> تواصل معنا</a>
     </div>
-    <div class="home-img"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=400&q=80" style="border-radius:20px; width:100%; max-width:400px;" alt="مرايات"></div>
+    <div class="home-img"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80" alt="مرايات فاخرة"></div>
 </section>
 
 <section id="features">
-    <div style="text-align:center;"><span class="proof-badge" style="background:rgba(212,175,55,0.2); padding:0.5rem 1.5rem; border-radius:50px;">لماذا تختارنا؟</span></div>
+    <div style="text-align:center;"><span style="background:rgba(198,164,59,0.12); padding:0.6rem 2rem; border-radius:60px; font-size:1.6rem;">لماذا تختارنا؟</span></div>
     <h2 class="section-title">صناعة متقنة <span class="accent">وجودة لا تضاهى</span></h2>
     <div class="proof-grid">
-        <div class="proof-card"><i class="fas fa-gem" style="font-size:4rem; color:var(--primary);"></i><h3>زجاج نقي</h3><p>انعكاس مثالي</p></div>
-        <div class="proof-card"><i class="fas fa-ruler-combined" style="font-size:4rem; color:var(--primary);"></i><h3>مقاسات مخصصة</h3><p>ننفذ أي مقاس</p></div>
-        <div class="proof-card"><i class="fas fa-lightbulb" style="font-size:4rem; color:var(--primary);"></i><h3>إضاءة LED</h3><p>تاتش ووايرلس</p></div>
-        <div class="proof-card"><i class="fas fa-truck" style="font-size:4rem; color:var(--primary);"></i><h3>توصيل آمن</h3><p>لجميع المحافظات</p></div>
+        <div class="proof-card"><i class="fas fa-gem"></i><h3>زجاج نقي</h3><p>انعكاس مثالي بدون تشوهات</p></div>
+        <div class="proof-card"><i class="fas fa-ruler-combined"></i><h3>مقاسات مخصصة</h3><p>ننفذ أي مقاس بدقة</p></div>
+        <div class="proof-card"><i class="fas fa-lightbulb"></i><h3>إضاءة LED</h3><p>تاتش حديث ووايرلس</p></div>
+        <div class="proof-card"><i class="fas fa-truck"></i><h3>توصيل آمن</h3><p>لجميع المحافظات</p></div>
     </div>
 </section>
 
 <section id="products">
     <h2 class="section-title">أحدث <span class="accent">تصميماتنا</span> (74 مراية)</h2>
-    <p style="text-align:center; margin-bottom:2rem;">اضغط على أي منتج للطلب عبر واتساب</p>
-    <div style="text-align:center; margin-bottom:1rem;">
-        <button id="fixImagesBtn" class="fix-host-btn"><i class="fas fa-sync-alt"></i> محاولة إعادة تحميل الصور</button>
-        <button id="changeHostBtn" class="fix-host-btn" style="background:#2c3e50;"><i class="fas fa-globe"></i> تجربة رابط بديل (imgur)</button>
+    <p style="text-align:center; font-size:1.8rem; margin-bottom:1rem;">📍 اضغط على أي منتج للطلب المباشر عبر واتساب</p>
+    <div style="text-align:center; margin: 1rem 0 1.5rem;">
+        <button id="fixImagesBtn" class="fix-host-btn"><i class="fas fa-sync-alt"></i> إعادة محاولة تحميل الصور</button>
+        <button id="changeHostBtn" class="fix-host-btn" style="background:#5c6b7a;"><i class="fas fa-globe"></i> تغيير رابط الاستضافة</button>
     </div>
     <div class="portfolio-container" id="productContainer"></div>
 </section>
@@ -293,21 +342,21 @@
 <section id="process">
     <h2 class="section-title">خطوات <span class="accent">الشراء</span></h2>
     <div class="process-container">
-        <div class="process-step"><div style="background:var(--primary); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:bold;">1</div><h3>اختر التصميم</h3><p>اختر الموديل أو أرسل قياسك</p></div>
-        <div class="process-step"><div style="background:var(--primary); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:bold;">2</div><h3>ننفذه بأعلى جودة</h3><p>خامات فاخرة وتقنية LED</p></div>
-        <div class="process-step"><div style="background:var(--primary); width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:bold;">3</div><h3>توصيل آمن</h3><p>دفع عند الاستلام</p></div>
+        <div class="process-step"><div style="background:var(--primary); width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; color:white; font-weight:800; font-size:1.9rem;">1</div><h3>اختر التصميم</h3><p>اختر الموديل أو أرسل قياسك الخاص</p></div>
+        <div class="process-step"><div style="background:var(--primary); width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; color:white; font-weight:800; font-size:1.9rem;">2</div><h3>ننفذه بأعلى جودة</h3><p>خامات فاخرة وتقنية LED متطورة</p></div>
+        <div class="process-step"><div style="background:var(--primary); width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; color:white; font-weight:800; font-size:1.9rem;">3</div><h3>توصيل آمن</h3><p>دفع عند الاستلام وتغليف احترافي</p></div>
     </div>
 </section>
 
-<section style="text-align:center; background:linear-gradient(135deg, #f5f5f5, #fff);">
-    <h2 class="cta-title">جاهز لمساحة جديدة؟</h2>
-    <a href="https://wa.me/201224318584" target="_blank" class="btn" style="margin:2rem auto; display:inline-block;"><i class="fab fa-whatsapp"></i> راسلنا على واتساب</a>
+<section style="text-align:center; background: #faf7f0; border-radius: 48px; margin: 2rem 5%; padding: 4rem 2rem;">
+    <h2 class="cta-title" style="font-size:3.8rem;">جاهز لمساحة جديدة؟</h2>
+    <a href="https://wa.me/201224318584" target="_blank" class="btn" style="margin:2rem auto; display:inline-block;"><i class="fab fa-whatsapp"></i> راسلنا الآن</a>
 </section>
 
 <footer class="footer"><p>© 2026 Mohamed Glass - جميع الحقوق محفوظة</p></footer>
 
 <script>
-    // قائمة المنتجات الكاملة (74 منتج)
+    // المنتجات الكاملة 74 (نفس البيانات)
     const productsRaw = [
         { name: "مراية 4 ملي", price: "950", specs: "60×80 سم - إضاءة ليد worm", img: "https://i.postimg.cc/bNd2yqhh/IMG-20260528-194701.jpg" },
         { name: "مراية 4 ملي عشوائي بإستاند", price: "2000", specs: "65×160 سم - تاتش ليد worm", img: "https://i.postimg.cc/KYQZ3gPD/IMG-20260528-194913.jpg" },
@@ -388,7 +437,7 @@
     let currentProducts = [...productsRaw];
 
     function orderWhatsApp(name, specs, price) {
-        const msg = `مرحباً Mohamed Glass، أريد طلب المراية التالية:%0A%0Aالموديل: ${name}%0Aالمواصفات: ${specs}%0Aالسعر: ${price} جنيه%0Aيرجى تأكيد الطلب.`;
+        const msg = `مرحباً محمد، أريد طلب المراية التالية:%0A%0Aالموديل: ${name}%0Aالمواصفات: ${specs}%0Aالسعر: ${price} جنيه%0Aيرجى تأكيد الطلب.`;
         window.open(`https://wa.me/201224318584?text=${msg}`, '_blank');
     }
 
@@ -410,6 +459,7 @@
                 this.style.display = 'none';
                 const fb = document.createElement('div');
                 fb.className = 'img-fallback';
+                fb.style.cssText = 'display:flex; align-items:center; justify-content:center; flex-direction:column; background:#f3efe7; height:100%; color:#7f8c8d; text-align:center; padding:1rem;';
                 fb.innerHTML = `<i class="fas fa-image-slash" style="font-size:3rem; margin-bottom:1rem;"></i><br>${p.name}<br><small>تعذر تحميل الصورة</small>`;
                 imgWrap.appendChild(fb);
             };
@@ -419,7 +469,7 @@
             priceDiv.innerText = p.price + ' ج.م';
             const layer = document.createElement('div');
             layer.className = 'portfolio-layer';
-            layer.innerHTML = `<h4>${p.name}</h4><p>${p.specs}</p><button class="btn btn-outline" style="padding:0.6rem 1.5rem; font-size:1.4rem;">اطلب <i class="fab fa-whatsapp"></i></button>`;
+            layer.innerHTML = `<h4>${p.name}</h4><p>${p.specs}</p><button class="btn btn-outline" style="padding:0.8rem 1.8rem; font-size:1.5rem;">اطلب عبر واتساب <i class="fab fa-whatsapp"></i></button>`;
             const btn = layer.querySelector('button');
             btn.onclick = (e) => { e.stopPropagation(); orderWhatsApp(p.name, p.specs, p.price); };
             box.appendChild(imgWrap);
@@ -429,23 +479,20 @@
         }
     }
 
-    // تجربة تغيير رابط الاستضافة (مثال: تحويل i.postimg.cc إلى image.ibb.co - لكنها وهمية، مجرد عرض)
     document.getElementById('changeHostBtn')?.addEventListener('click', () => {
-        let newHost = prompt("أدخل رابط الاستضافة البديل (مثل: i.ibb.co) أو اتركه فارغاً للإلغاء:", "i.ibb.co");
+        let newHost = prompt("أدخل رابط الاستضافة البديل (مثل i.ibb.co أو i.imgur.com) مع الاحتفاظ بنفس أسماء الملفات:", "i.postimg.cc");
         if (newHost && newHost.trim() !== "") {
             currentProducts = productsRaw.map(p => ({
                 ...p,
                 img: p.img.replace('i.postimg.cc', newHost.trim())
             }));
             renderProducts();
-            alert(`تم تغيير رابط الصور إلى ${newHost}. إذا كانت الصور لا تزال لا تظهر، فهذا يعني أن الخدمة الجديدة لا تحتوي على الصور. أعد تحميل الصفحة لاستعادة الروابط الأصلية.`);
-        } else {
-            renderProducts();
-        }
+            alert(`تم تغيير رابط الصور إلى ${newHost}. إذا لم تظهر الصور، فالخدمة الجديدة لا تحتوي على الملفات. أعد تحميل الصفحة لاستعادة الرابط الأصلي.`);
+        } else renderProducts();
     });
     document.getElementById('fixImagesBtn')?.addEventListener('click', () => {
         renderProducts();
-        alert("تم إعادة تحميل محاولة عرض الصور. إذا لم تظهر، قد يكون موقع i.postimg.cc محظوراً في شبكتك. جرب استخدام VPN أو زر 'تجربة رابط بديل'.");
+        alert("تم تحديث محاولة تحميل الصور. إذا لم تظهر، قد يكون موقع i.postimg.cc محظوراً. جرب استخدام VPN أو زر 'تغيير رابط الاستضافة'.");
     });
 
     // تأثير الكتابة
@@ -456,34 +503,31 @@
         if (ci < words[wi].length) {
             typedSpan.textContent += words[wi].charAt(ci);
             ci++;
-            setTimeout(type, 120);
+            setTimeout(type, 110);
         } else setTimeout(erase, 2000);
     }
     function erase() {
         if (ci > 0) {
             typedSpan.textContent = words[wi].substring(0, ci-1);
             ci--;
-            setTimeout(erase, 50);
+            setTimeout(erase, 45);
         } else {
             wi = (wi+1) % words.length;
             setTimeout(type, 100);
         }
     }
-    setTimeout(type, 500);
+    setTimeout(type, 400);
 
-    // الجسيمات
     particlesJS('particles-js', {
-        particles: { number: { value: 40 }, color: { value: "#d4af37" }, opacity: { value: 0.3 }, size: { value: 2 }, move: { speed: 1 } },
+        particles: { number: { value: 35 }, color: { value: "#c6a43b" }, opacity: { value: 0.25 }, size: { value: 2.5 }, move: { speed: 0.8 } },
         interactivity: { events: { onhover: { enable: true, mode: "grab" } } }
     });
 
-    // تأثيرات الظهور
     const sections = document.querySelectorAll('section');
     const obs = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('show')), { threshold: 0.1 });
     sections.forEach(s => obs.observe(s));
     document.querySelector('#home')?.classList.add('show');
 
-    // قائمة الموبايل
     const menuIcon = document.getElementById('menu-icon');
     const nav = document.querySelector('nav');
     menuIcon?.addEventListener('click', () => nav.classList.toggle('active'));
