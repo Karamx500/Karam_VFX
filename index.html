@@ -25,7 +25,6 @@
             --text: #2c3e4e;
             --text-light: #6a7c8f;
             --gradient: linear-gradient(135deg, #d4af37, #b68b2d);
-            --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
         }
 
         html { font-size: 62.5%; scroll-behavior: smooth; }
@@ -54,16 +53,14 @@
         .home-content h3 { font-size: 2.6rem; color: var(--text-light); margin: 1rem 0; }
         .typing-text { color: var(--primary); }
         .home-content p { font-size: 1.8rem; color: var(--text-light); max-width: 500px; margin: 2rem 0; }
-        .home-img img { border-radius: 28px; width: 100%; max-width: 380px; box-shadow: var(--shadow-sm); }
+        .home-img img { border-radius: 28px; width: 100%; max-width: 380px; }
 
         .btn {
             display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.2rem 3rem;
             background: var(--gradient); color: white; border-radius: 60px; font-weight: 800;
-            font-size: 1.6rem; transition: 0.2s; cursor: pointer; border: none;
-            text-decoration: none;
+            font-size: 1.6rem; cursor: pointer; border: none; text-decoration: none;
         }
         .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
-        .btn-outline:hover { background: var(--primary); color: white; }
 
         .portfolio-container {
             display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -72,14 +69,13 @@
         .portfolio-box {
             background: var(--card-bg); border-radius: 28px; overflow: hidden;
             border: 1px solid var(--border-color); transition: 0.25s; height: 420px;
-            position: relative; box-shadow: var(--shadow-sm);
+            position: relative; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
         }
-        .product-image { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
-        .portfolio-box:hover .product-image { transform: scale(1.02); }
+        .product-image { width: 100%; height: 100%; object-fit: cover; }
         .price-tag {
             position: absolute; top: 16px; left: 16px; background: var(--gradient);
             color: white; padding: 0.5rem 1.6rem; border-radius: 40px; font-weight: 800;
-            font-size: 1.7rem; z-index: 5; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 1.7rem; z-index: 5;
         }
         .portfolio-layer {
             position: absolute; bottom: 0; right: 0; width: 100%;
@@ -90,30 +86,24 @@
         .portfolio-box:hover .portfolio-layer { transform: translateY(0); }
         .portfolio-layer h4 { color: #fff3e6; font-size: 2rem; font-weight: 800; }
         .portfolio-layer p { color: #f0e2d0; font-size: 1.5rem; margin: 0.5rem 0 1rem; }
-        .portfolio-layer .whatsapp-btn {
+        .whatsapp-btn {
             background: rgba(0,0,0,0.5); border: 2px solid #ffdfaa; color: #fff;
             padding: 0.7rem 1.8rem; border-radius: 40px; font-size: 1.5rem;
-            font-weight: bold; cursor: pointer; transition: 0.2s; display: inline-flex;
-            align-items: center; gap: 0.5rem;
+            font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;
         }
-        .portfolio-layer .whatsapp-btn:hover { background: var(--primary); border-color: var(--primary); color: #1e2a36; }
+        .whatsapp-btn:hover { background: var(--primary); border-color: var(--primary); color: #1e2a36; }
 
-        .proof-grid, .process-container {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem; margin-top: 3rem;
+        .img-fallback {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: #f0e9df; color: #8b7355; height: 100%; text-align: center;
+            font-size: 1.4rem; gap: 0.8rem; cursor: pointer;
         }
-        .proof-card, .process-step {
-            background: var(--bg-alt); padding: 2rem 1.2rem; border-radius: 28px;
-            border: 1px solid var(--border-color); text-align: center;
-        }
-        .proof-card i, .process-step i { font-size: 3.8rem; color: var(--primary); margin-bottom: 0.8rem; }
         .fix-host-btn {
             background: var(--primary); border: none; padding: 0.8rem 1.8rem;
             border-radius: 40px; font-weight: bold; font-size: 1.4rem; margin: 0.5rem;
             cursor: pointer;
         }
         .footer { background: #e6dfd1; color: var(--secondary); text-align: center; padding: 2rem; font-size: 1.4rem; }
-
         @media (max-width: 768px) {
             html { font-size: 55%; }
             .home { flex-direction: column; text-align: center; gap: 1rem; }
@@ -124,11 +114,6 @@
             }
             nav.active { display: flex; }
             .portfolio-box { height: 380px; }
-        }
-        .img-fallback {
-            display: flex; align-items: center; justify-content: center; flex-direction: column;
-            background: #f4efe8; color: #a28f77; height: 100%; text-align: center; font-size: 1.4rem;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -154,17 +139,17 @@
         <p>أكثر من 74 تصميم فاخر من المرايات العصرية بجودة عالية وإضاءة LED دافئة (Warm).</p>
         <a href="https://wa.me/201224318584?text=مرحباً، أريد الاستفسار عن المرايات" target="_blank" class="btn"><i class="fab fa-whatsapp"></i> تواصل واتساب</a>
     </div>
-    <div class="home-img"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80" alt="مرايات فاخرة"></div>
+    <div class="home-img"><img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=500&q=80" alt="مرايات"></div>
 </section>
 
 <section id="features">
     <div style="text-align:center;"><span style="background:rgba(198,164,59,0.12); padding:0.4rem 1.8rem; border-radius:60px; font-size:1.5rem;">لماذا تختارنا؟</span></div>
     <h2 class="section-title">صناعة متقنة <span class="accent">وجودة لا تضاهى</span></h2>
-    <div class="proof-grid">
-        <div class="proof-card"><i class="fas fa-gem"></i><h3>زجاج نقي</h3><p>انعكاس مثالي</p></div>
-        <div class="proof-card"><i class="fas fa-ruler-combined"></i><h3>مقاسات مخصصة</h3><p>ننفذ أي مقاس</p></div>
-        <div class="proof-card"><i class="fas fa-lightbulb"></i><h3>إضاءة LED</h3><p>لون دافئ (Warm)</p></div>
-        <div class="proof-card"><i class="fas fa-truck"></i><h3>توصيل آمن</h3><p>لجميع المحافظات</p></div>
+    <div class="proof-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:3rem;">
+        <div class="proof-card" style="background:var(--bg-alt); padding:2rem; border-radius:28px; text-align:center;"><i class="fas fa-gem" style="font-size:3.8rem; color:var(--primary);"></i><h3>زجاج نقي</h3><p>انعكاس مثالي</p></div>
+        <div class="proof-card" style="background:var(--bg-alt); padding:2rem; border-radius:28px; text-align:center;"><i class="fas fa-ruler-combined" style="font-size:3.8rem; color:var(--primary);"></i><h3>مقاسات مخصصة</h3><p>ننفذ أي مقاس</p></div>
+        <div class="proof-card" style="background:var(--bg-alt); padding:2rem; border-radius:28px; text-align:center;"><i class="fas fa-lightbulb" style="font-size:3.8rem; color:var(--primary);"></i><h3>إضاءة LED</h3><p>لون دافئ (Warm)</p></div>
+        <div class="proof-card" style="background:var(--bg-alt); padding:2rem; border-radius:28px; text-align:center;"><i class="fas fa-truck" style="font-size:3.8rem; color:var(--primary);"></i><h3>توصيل آمن</h3><p>لجميع المحافظات</p></div>
     </div>
 </section>
 
@@ -172,18 +157,19 @@
     <h2 class="section-title">أحدث <span class="accent">تصميماتنا</span> (74 مراية)</h2>
     <p style="text-align:center; font-size:1.7rem; margin-bottom:0.5rem;">📱 اضغط على أي منتج للطلب عبر واتساب</p>
     <div style="text-align:center; margin: 1rem 0;">
-        <button id="fixImagesBtn" class="fix-host-btn"><i class="fas fa-sync-alt"></i> إعادة تحميل الصور</button>
+        <button id="fixImagesBtn" class="fix-host-btn"><i class="fas fa-sync-alt"></i> إعادة محاولة التحميل</button>
         <button id="changeHostBtn" class="fix-host-btn" style="background:#5c6b7a;"><i class="fas fa-globe"></i> تغيير رابط الاستضافة</button>
+        <button id="howToFixBtn" class="fix-host-btn" style="background:#8b7a66;"><i class="fas fa-question-circle"></i> حل مشكلة الصور</button>
     </div>
     <div class="portfolio-container" id="productContainer"></div>
 </section>
 
 <section id="process">
     <h2 class="section-title">خطوات <span class="accent">الشراء</span></h2>
-    <div class="process-container">
-        <div class="process-step"><div style="background:var(--primary); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:800;">1</div><h3>اختر التصميم</h3><p>اختر الموديل أو أرسل قياسك</p></div>
-        <div class="process-step"><div style="background:var(--primary); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:800;">2</div><h3>ننفذه بأعلى جودة</h3><p>خامات فاخرة وتقنية LED</p></div>
-        <div class="process-step"><div style="background:var(--primary); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:800;">3</div><h3>توصيل آمن</h3><p>دفع عند الاستلام</p></div>
+    <div class="process-container" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:3rem;">
+        <div class="process-step" style="background:var(--bg-alt); padding:2rem; border-radius:28px; text-align:center;"><div style="background:var(--primary); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:800;">1</div><h3>اختر التصميم</h3><p>اختر الموديل أو أرسل قياسك</p></div>
+        <div class="process-step" style="background:var(--bg-alt); padding:2rem; border-radius:28px; text-align:center;"><div style="background:var(--primary); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:800;">2</div><h3>ننفذه بأعلى جودة</h3><p>خامات فاخرة وتقنية LED</p></div>
+        <div class="process-step" style="background:var(--bg-alt); padding:2rem; border-radius:28px; text-align:center;"><div style="background:var(--primary); width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; color:white; font-weight:800;">3</div><h3>توصيل آمن</h3><p>دفع عند الاستلام</p></div>
     </div>
 </section>
 
@@ -195,7 +181,7 @@
 <footer class="footer"><p>© 2026 Mohamed Glass - جميع الحقوق محفوظة</p></footer>
 
 <script>
-    // البيانات الكاملة (تم تعديل warm وكل شيء)
+    // جميع المنتجات (74) كما هي، مع تصحيح warm
     const productsRaw = [
         { name: "مراية 4 ملي", price: "950", specs: "60×80 سم - إضاءة ليد warm", img: "https://i.postimg.cc/bNd2yqhh/IMG-20260528-194701.jpg" },
         { name: "مراية 4 ملي عشوائي بإستاند", price: "2000", specs: "65×160 سم - تاتش ليد warm", img: "https://i.postimg.cc/KYQZ3gPD/IMG-20260528-194913.jpg" },
@@ -275,15 +261,11 @@
 
     let currentProducts = [...productsRaw];
 
-    // دالة الطلب عبر واتساب
     function orderViaWhatsApp(name, specs, price) {
-        const phone = "201224318584";
-        const message = `مرحباً محمد، أريد طلب المراية التالية:%0A%0Aالموديل: ${name}%0Aالمواصفات: ${specs}%0Aالسعر: ${price} جنيه%0Aيرجى تأكيد الطلب.`;
-        const url = `https://wa.me/${phone}?text=${message}`;
-        window.open(url, '_blank');
+        const msg = `مرحباً محمد، أريد طلب المراية التالية:%0A%0Aالموديل: ${name}%0Aالمواصفات: ${specs}%0Aالسعر: ${price} جنيه`;
+        window.open(`https://wa.me/201224318584?text=${msg}`, '_blank');
     }
 
-    // عرض المنتجات مع ربط آمن للزر
     function renderProducts() {
         const container = document.getElementById('productContainer');
         if (!container) return;
@@ -302,7 +284,7 @@
                 this.style.display = 'none';
                 const fb = document.createElement('div');
                 fb.className = 'img-fallback';
-                fb.innerHTML = `<i class="fas fa-image-slash" style="font-size:2.8rem;"></i><br>${p.name}<br><small>اضغط لفتح الصورة</small>`;
+                fb.innerHTML = `<i class="fas fa-image-slash" style="font-size:2.5rem;"></i><br>${p.name}<br><span style="font-size:1.2rem;">اضغط لفتح الرابط</span>`;
                 fb.onclick = () => window.open(p.img, '_blank');
                 imgWrap.appendChild(fb);
             };
@@ -312,18 +294,14 @@
             priceDiv.innerText = p.price + ' ج.م';
             const layer = document.createElement('div');
             layer.className = 'portfolio-layer';
-            // إنشاء زر منفصل وربطه مباشرة
-            const btn = document.createElement('button');
-            btn.className = 'whatsapp-btn';
-            btn.innerHTML = '<i class="fab fa-whatsapp"></i> اطلب عبر واتساب';
-            btn.onclick = (e) => {
-                e.stopPropagation();
-                orderViaWhatsApp(p.name, p.specs, p.price);
-            };
             const title = document.createElement('h4');
             title.textContent = p.name;
             const desc = document.createElement('p');
             desc.textContent = p.specs;
+            const btn = document.createElement('button');
+            btn.className = 'whatsapp-btn';
+            btn.innerHTML = '<i class="fab fa-whatsapp"></i> اطلب عبر واتساب';
+            btn.onclick = (e) => { e.stopPropagation(); orderViaWhatsApp(p.name, p.specs, p.price); };
             layer.appendChild(title);
             layer.appendChild(desc);
             layer.appendChild(btn);
@@ -334,44 +312,28 @@
         }
     }
 
-    // أزرار المساعدة
-    document.getElementById('fixImagesBtn')?.addEventListener('click', () => { renderProducts(); alert("تم إعادة تحميل الصور، إذا لم تظهر اضغط على الصورة لفتحها."); });
+    document.getElementById('fixImagesBtn')?.addEventListener('click', () => renderProducts());
     document.getElementById('changeHostBtn')?.addEventListener('click', () => {
         let newHost = prompt("أدخل رابط الاستضافة البديل (مثل i.ibb.co):", "i.postimg.cc");
         if (newHost && newHost.trim()) {
             currentProducts = productsRaw.map(p => ({ ...p, img: p.img.replace('i.postimg.cc', newHost.trim()) }));
             renderProducts();
-            alert(`تم تغيير الرابط إلى ${newHost}. إذا لم تظهر الصور فالمضيف الجديد لا يحتوي عليها.`);
-        } else renderProducts();
+            alert(`تم تغيير الرابط إلى ${newHost}. إذا لم تظهر الصور، فالمضيف الجديد لا يحتوي على هذه الملفات.\n\nالحل الأمثل: ارفع صورك على Imgur.com واستخدم رابط مشابه.`);
+        }
+    });
+    document.getElementById('howToFixBtn')?.addEventListener('click', () => {
+        alert("🔧 حل مشكلة عدم ظهور الصور على الهاتف:\n\n1️⃣ موقع i.postimg.cc قد يكون محظوراً في شبكتك.\n2️⃣ الحل السريع: اضغط على الصورة (المربع الرمادي) لتفتح الرابط في المتصفح.\n3️⃣ الحل الدائم: ارفع جميع الصور على موقع Imgur (مجاني) ثم استخدم زر 'تغيير رابط الاستضافة' وأدخل 'i.imgur.com'.\n4️⃣ أو استخدم أي خدمة استضافة أخرى وضع روابطها المباشرة.\n\nلأي استفسار، تواصل معنا على واتساب.");
     });
 
     // تأثير الكتابة
     const typedSpan = document.querySelector(".typing-text");
     const words = ["الفخامة", "الأناقة", "الجمال", "الرقي"];
     let wi = 0, ci = 0;
-    function type() {
-        if (ci < words[wi].length) {
-            typedSpan.textContent += words[wi].charAt(ci);
-            ci++;
-            setTimeout(type, 110);
-        } else setTimeout(erase, 2000);
-    }
-    function erase() {
-        if (ci > 0) {
-            typedSpan.textContent = words[wi].substring(0, ci-1);
-            ci--;
-            setTimeout(erase, 45);
-        } else {
-            wi = (wi+1) % words.length;
-            setTimeout(type, 100);
-        }
-    }
+    function type() { if (ci < words[wi].length) { typedSpan.textContent += words[wi].charAt(ci); ci++; setTimeout(type, 110); } else setTimeout(erase, 2000); }
+    function erase() { if (ci > 0) { typedSpan.textContent = words[wi].substring(0, ci-1); ci--; setTimeout(erase, 45); } else { wi = (wi+1) % words.length; setTimeout(type, 100); } }
     setTimeout(type, 400);
 
-    particlesJS('particles-js', {
-        particles: { number: { value: 30 }, color: { value: "#c6a43b" }, opacity: { value: 0.2 }, size: { value: 2.5 }, move: { speed: 0.7 } },
-        interactivity: { events: { onhover: { enable: true, mode: "grab" } } }
-    });
+    particlesJS('particles-js', { particles: { number: { value: 30 }, color: { value: "#c6a43b" }, opacity: { value: 0.2 }, size: { value: 2.5 }, move: { speed: 0.7 } }, interactivity: { events: { onhover: { enable: true, mode: "grab" } } } });
 
     const sections = document.querySelectorAll('section');
     const obs = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('show')), { threshold: 0.1 });
