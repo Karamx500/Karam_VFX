@@ -17,32 +17,32 @@
 
         :root {
             --primary: #c6a43b;
-            --secondary: #2c3e4e;
-            --bg-main: #fefaf2;
-            --bg-alt: #ffffff;
-            --card-bg: #ffffff;
-            --border-color: #ede5d5;
-            --text: #2c3e4e;
-            --text-light: #6a7c8f;
+            --secondary: #0f172a;
+            --bg-main: #121519;
+            --bg-alt: #1c2128;
+            --card-bg: #222831;
+            --border-color: #2d3540;
+            --text: #f3f4f6;
+            --text-light: #9ca3af;
             --gradient: linear-gradient(135deg, #d4af37, #b68b2d);
         }
 
         html { font-size: 62.5%; scroll-behavior: smooth; }
         body { background: var(--bg-main); color: var(--text); line-height: 1.5; overflow-x: hidden; }
-        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; opacity: 0.3; }
+        #particles-js { position: fixed; width: 100%; height: 100%; z-index: -1; opacity: 0.15; }
 
         header {
             position: fixed; top: 0; right: 0; width: 100%; padding: 1.4rem 5%;
             display: flex; justify-content: space-between; align-items: center;
-            background: rgba(254, 250, 242, 0.96); backdrop-filter: blur(12px); z-index: 1000;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: rgba(18, 21, 25, 0.95); backdrop-filter: blur(12px); z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .logo-text { font-size: 2.6rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .logo-text span { color: var(--secondary); -webkit-text-fill-color: var(--secondary); }
+        .logo-text span { color: var(--text); -webkit-text-fill-color: var(--text); }
         nav { display: flex; gap: 2.5rem; }
         nav a { font-size: 1.65rem; font-weight: 600; color: var(--text); text-decoration: none; transition: 0.3s; }
         nav a:hover, nav a.active { color: var(--primary); }
-        #menu-icon { font-size: 2.8rem; display: none; cursor: pointer; color: var(--secondary); }
+        #menu-icon { font-size: 2.8rem; display: none; cursor: pointer; color: var(--text); }
         
         section { padding: 11rem 5% 7rem; opacity: 0; transform: translateY(20px); transition: 0.5s ease; }
         section.show { opacity: 1; transform: translateY(0); }
@@ -72,9 +72,9 @@
         .portfolio-box {
             background: var(--card-bg); border-radius: 24px; overflow: hidden;
             border: 1px solid var(--border-color); transition: 0.3s; height: 420px;
-            position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        .portfolio-box:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.1); transform: translateY(-5px); }
+        .portfolio-box:hover { box-shadow: 0 15px 30px rgba(0,0,0,0.5); transform: translateY(-5px); }
         .product-image { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
         .portfolio-box:hover .product-image { transform: scale(1.05); }
         
@@ -107,18 +107,65 @@
 
         .footer { background: var(--secondary); color: white; text-align: center; padding: 2.5rem; font-size: 1.5rem; margin-top: 4rem; }
         
+        .image-modal {
+            display: none; position: fixed; z-index: 9999; padding-top: 20px;
+            left: 0; top: 0; width: 100%; height: 100%; overflow: auto;
+            background-color: rgba(15, 23, 33, 0.95); backdrop-filter: blur(8px);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .image-modal.show { display: flex; opacity: 1; justify-content: center; align-items: center; }
+        .modal-content {
+            margin: auto; display: block; max-width: 95%; max-height: 85vh;
+            border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            transform: scale(0.8); transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+        .image-modal.show .modal-content { transform: scale(1); }
+        .close-modal {
+            position: absolute; top: 20px; right: 35px; color: #f1f1f1;
+            font-size: 50px; font-weight: bold; transition: 0.3s; cursor: pointer;
+            z-index: 10000;
+        }
+        .close-modal:hover, .close-modal:focus { color: var(--primary); text-decoration: none; transform: scale(1.1); }
+        .product-image { cursor: zoom-in; }
+
+        .search-wrapper {
+            max-width: 600px; margin: 0 auto 3rem; position: relative;
+            padding: 0 2rem;
+        }
+        .search-input {
+            width: 100%; padding: 1.5rem 5rem 1.5rem 2rem;
+            border-radius: 40px; border: 2px solid var(--border-color);
+            font-size: 1.6rem; outline: none; transition: 0.3s;
+            background: var(--bg-alt); color: var(--text);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+        .search-input:focus {
+            border-color: var(--primary); box-shadow: 0 5px 20px rgba(198,164,59,0.15);
+        }
+        .search-icon {
+            position: absolute; top: 50%; right: 4rem;
+            transform: translateY(-50%); color: var(--text-light);
+            font-size: 1.8rem; transition: 0.3s;
+        }
+        .search-input:focus + .search-icon { color: var(--primary); }
+        .no-results {
+            text-align: center; font-size: 1.8rem; color: var(--text-light);
+            margin-top: 2rem; display: none; width: 100%; grid-column: 1 / -1;
+        }
+
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             html { font-size: 55%; }
             .home { flex-direction: column; text-align: center; gap: 2rem; padding-top: 13rem; }
             #menu-icon { display: block; }
             nav {
-                position: absolute; top: 100%; right: 0; width: 100%; background: #fffcf5;
+                position: absolute; top: 100%; right: 0; width: 100%; background: var(--bg-alt);
                 flex-direction: column; padding: 2rem; display: none; border-radius: 0 0 24px 24px;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             }
             nav.active { display: flex; }
-            .portfolio-box { height: 400px; background: #f9f9f9; }
+            .portfolio-box { height: 400px; background: var(--card-bg); }
             
             /* Make text always visible on mobile */
             .portfolio-layer {
@@ -163,16 +210,22 @@
     <div style="text-align:center;"><span style="background:rgba(198,164,59,0.12); padding:0.4rem 1.8rem; border-radius:60px; font-size:1.5rem; font-weight:bold; color:var(--primary);">لماذا تختارنا؟</span></div>
     <h2 class="section-title">صناعة متقنة <span class="accent">وجودة لا تضاهى</span></h2>
     <div class="proof-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:3rem;">
-        <div class="proof-card" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);"><i class="fas fa-gem" style="font-size:4rem; color:var(--primary); margin-bottom:1rem;"></i><h3 style="font-size:2rem;">زجاج نقي</h3><p style="font-size:1.5rem; color:var(--text-light);">انعكاس مثالي خالي من الشوائب</p></div>
-        <div class="proof-card" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);"><i class="fas fa-ruler-combined" style="font-size:4rem; color:var(--primary); margin-bottom:1rem;"></i><h3 style="font-size:2rem;">مقاسات مخصصة</h3><p style="font-size:1.5rem; color:var(--text-light);">ننفذ أي مقاس يناسب مساحتك</p></div>
-        <div class="proof-card" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);"><i class="fas fa-lightbulb" style="font-size:4rem; color:var(--primary); margin-bottom:1rem;"></i><h3 style="font-size:2rem;">إضاءة LED</h3><p style="font-size:1.5rem; color:var(--text-light);">عمر افتراضي طويل وإضاءة جذابة</p></div>
-        <div class="proof-card" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);"><i class="fas fa-truck" style="font-size:4rem; color:var(--primary); margin-bottom:1rem;"></i><h3 style="font-size:2rem;">توصيل آمن</h3><p style="font-size:1.5rem; color:var(--text-light);">شحن آمن لجميع المحافظات</p></div>
+        <div class="proof-card" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"><i class="fas fa-gem" style="font-size:4rem; color:var(--primary); margin-bottom:1rem;"></i><h3 style="font-size:2rem;">زجاج نقي</h3><p style="font-size:1.5rem; color:var(--text-light);">انعكاس مثالي خالي من الشوائب</p></div>
+        <div class="proof-card" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"><i class="fas fa-ruler-combined" style="font-size:4rem; color:var(--primary); margin-bottom:1rem;"></i><h3 style="font-size:2rem;">مقاسات مخصصة</h3><p style="font-size:1.5rem; color:var(--text-light);">ننفذ أي مقاس يناسب مساحتك</p></div>
+        <div class="proof-card" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"><i class="fas fa-lightbulb" style="font-size:4rem; color:var(--primary); margin-bottom:1rem;"></i><h3 style="font-size:2rem;">إضاءة LED</h3><p style="font-size:1.5rem; color:var(--text-light);">عمر افتراضي طويل وإضاءة جذابة</p></div>
+        <div class="proof-card" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"><i class="fas fa-truck" style="font-size:4rem; color:var(--primary); margin-bottom:1rem;"></i><h3 style="font-size:2rem;">توصيل آمن</h3><p style="font-size:1.5rem; color:var(--text-light);">شحن آمن لجميع المحافظات</p></div>
     </div>
 </section>
 
 <section id="products">
     <h2 class="section-title">أحدث <span class="accent">تصميماتنا</span> (74 موديل)</h2>
     <p style="text-align:center; font-size:1.8rem; margin-bottom:2rem; color:var(--text-light);">📱 تصفح الموديلات واضغط على "اطلب عبر واتساب" لتأكيد طلبك</p>
+    
+    <div class="search-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="ابحث باسم المراية أو المقاس (مثال: دوران، 120)..." oninput="filterProducts(this.value)">
+        <i class="fas fa-search search-icon"></i>
+    </div>
+
     <div class="portfolio-container" id="productContainer">
         <!-- Products will be injected here by JS -->
     </div>
@@ -181,23 +234,23 @@
 <section id="process">
     <h2 class="section-title">خطوات <span class="accent">الطلب</span></h2>
     <div class="process-container" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2.5rem; margin-top:3rem;">
-        <div class="process-step" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+        <div class="process-step" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
             <div style="background:var(--primary); width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; color:white; font-weight:800; font-size:2rem;">1</div>
             <h3 style="font-size:2.2rem; margin-bottom:0.5rem;">اختر التصميم</h3><p style="font-size:1.6rem; color:var(--text-light);">اختر الموديل من القائمة أو أرسل تصميمك الخاص</p>
         </div>
-        <div class="process-step" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+        <div class="process-step" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
             <div style="background:var(--primary); width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; color:white; font-weight:800; font-size:2rem;">2</div>
             <h3 style="font-size:2.2rem; margin-bottom:0.5rem;">التنفيذ بدقة</h3><p style="font-size:1.6rem; color:var(--text-light);">يتم التصنيع بأجود الخامات وتقفيل ممتاز</p>
         </div>
-        <div class="process-step" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.03);">
+        <div class="process-step" style="background:var(--bg-alt); padding:3rem 2rem; border-radius:28px; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
             <div style="background:var(--primary); width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; color:white; font-weight:800; font-size:2rem;">3</div>
             <h3 style="font-size:2.2rem; margin-bottom:0.5rem;">التوصيل والاستلام</h3><p style="font-size:1.6rem; color:var(--text-light);">نقوم بتوصيل المنتج والدفع عند الاستلام</p>
         </div>
     </div>
 </section>
 
-<section style="text-align:center; background: linear-gradient(135deg, #fefaf2, #f5ecd6); border-radius: 48px; margin: 1rem 5% 3rem; padding: 5rem 2rem; box-shadow: 0 10px 30px rgba(198,164,59,0.1);">
-    <h2 style="font-size:3.5rem; margin-bottom: 1rem; color:var(--secondary);">جاهز لإضافة لمسة جمال لمنزلك؟</h2>
+<section style="text-align:center; background: linear-gradient(135deg, var(--bg-alt), var(--bg-main)); border-radius: 48px; margin: 1rem 5% 3rem; padding: 5rem 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 1px solid var(--border-color);">
+    <h2 style="font-size:3.5rem; margin-bottom: 1rem; color:var(--text);">جاهز لإضافة لمسة جمال لمنزلك؟</h2>
     <p style="font-size:1.8rem; color:var(--text-light); margin-bottom: 2rem;">نحن هنا لمساعدتك في اختيار أو تنفيذ المراية المثالية لمساحتك.</p>
     <a href="https://wa.me/+201224318584?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%B7%D9%84%D8%A8%20%D9%85%D8%B1%D8%A7%D9%8A%D8%A9%20%D9%85%D9%88%D8%AF%D9%8A%D9%84%20%D9%85%D8%AE%D8%B5%D8%B5" target="_blank" class="btn" style="font-size: 1.8rem; padding: 1.5rem 4rem;"><i class="fab fa-whatsapp" style="font-size: 2.2rem;"></i> راسلنا الآن</a>
 </section>
@@ -206,6 +259,11 @@
     <p style="margin-bottom: 1rem; font-size: 2rem; font-weight: bold; color: var(--primary);">Mohamed Glass</p>
     <p>© 2026 جميع الحقوق محفوظة - الجودة والفخامة في كل تفصيلة</p>
 </footer>
+
+<div id="imageModal" class="image-modal">
+    <span class="close-modal" onclick="closeImageModal()">&times;</span>
+    <img class="modal-content" id="expandedImg">
+</div>
 
 <script>
     // جميع المنتجات (74) بروابطها المباشرة بدون بروكسي لضمان الظهور
@@ -305,20 +363,25 @@
         }
     }
 
-    // دالة لإنشاء وعرض المنتجات
-    function renderProducts() {
+    // دالة لإنشاء وعرض المنتجات (تم تحديثها لتقبل قائمة مخصصة للبحث)
+    function renderProducts(listToRender = productsList) {
         const container = document.getElementById('productContainer');
         if (!container) return;
         
         container.innerHTML = ''; // تفريغ الحاوية قبل الإضافة
         
-        productsList.forEach(p => {
+        if (listToRender.length === 0) {
+            container.innerHTML = '<div class="no-results" style="display:block;"><i class="fas fa-search-minus" style="font-size:4rem; margin-bottom:1rem; color:var(--primary);"></i><br>عذراً، لا توجد نتائج مطابقة لبحثك. جرب مقاس أو اسم آخر.</div>';
+            return;
+        }
+        
+        listToRender.forEach(p => {
+            // حل المشكلة: تعريف المتغيرات الناقصة (صندوق المنتج ورابط البروكسي)
             const box = document.createElement('div');
             box.className = 'portfolio-box';
             
-            // إضافة خاصية التحميل الكسول وبروكسي قوي (wsrv) لتخطي حظر الصور على شبكات الموبايل في مصر
-            const proxyUrl = `https://wsrv.nl/?url=${p.img}&w=400&h=500&fit=cover`;
-            const imgHTML = `<img class="product-image" src="${proxyUrl}" alt="${p.name}" loading="lazy" onerror="this.onerror=null; this.src='${p.img}';">`;
+            const proxyUrl = `https://images.weserv.nl/?url=${encodeURIComponent(p.img)}&w=500&h=500&fit=cover`;
+            const imgHTML = `<img class="product-image" src="${proxyUrl}" alt="${p.name}" loading="lazy" onclick="openImageModal('${p.img}')" onerror="this.onerror=null; this.src='${p.img}';">`;
             
             // تجهيز السعر
             const priceHTML = `<div class="price-tag">${p.price} ج.م</div>`;
@@ -337,6 +400,28 @@
             box.innerHTML = imgHTML + priceHTML + layerHTML;
             container.appendChild(box);
         });
+    }
+
+    // دالة ذكية لتحسين البحث باللغة العربية
+    function normalizeArabic(text) {
+        return text.replace(/[أإآا]/g, 'ا').replace(/ة/g, 'ه').toLowerCase().trim();
+    }
+
+    // دالة الفلترة والبحث
+    function filterProducts(query) {
+        if (!query) {
+            renderProducts(productsList); // عرض الكل إذا كان مربع البحث فارغاً
+            return;
+        }
+        
+        const searchTerm = normalizeArabic(query);
+        const filtered = productsList.filter(p => {
+            const normalizedName = normalizeArabic(p.name);
+            const normalizedSpecs = normalizeArabic(p.specs);
+            return normalizedName.includes(searchTerm) || normalizedSpecs.includes(searchTerm);
+        });
+        
+        renderProducts(filtered);
     }
 
     // تأثير الكتابة (Typing Effect)
@@ -392,6 +477,32 @@
     // إظهار القسم الأول مباشرة
     const homeSec = document.querySelector('#home');
     if(homeSec) homeSec.classList.add('show');
+
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("expandedImg");
+
+    function openImageModal(imageSrc) {
+        modal.style.display = "flex";
+        // استخدام setTimeout لإعطاء متصفحك الوقت لتطبيق display:flex قبل بدء الأنيميشن
+        setTimeout(() => modal.classList.add("show"), 10);
+        modalImg.src = imageSrc; // نستخدم الرابط الأصلي للصورة لضمان أعلى جودة عند التكبير
+        document.body.style.overflow = "hidden"; // منع النزول والصعود في الصفحة أثناء عرض الصورة
+    }
+
+    function closeImageModal() {
+        modal.classList.remove("show");
+        setTimeout(() => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto"; // إعادة تفعيل النزول والصعود
+        }, 300);
+    }
+
+    // إغلاق النافذة عند الضغط في أي مكان خارج الصورة (على الخلفية السوداء)
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            closeImageModal();
+        }
+    });
 
     // تفعيل قائمة الموبايل (Mobile Menu)
     const menuIcon = document.getElementById('menu-icon');
